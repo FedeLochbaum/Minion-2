@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stats : MonoBehaviour {
+public class TurnSystem : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
