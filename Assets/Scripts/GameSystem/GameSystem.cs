@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameSystem : MonoBehaviour {
+	//Encargado de generar los mobs, de crear notifiar un nuevo combate y de ser notifiado en caso de finalizarlo.
+	//Los players podrian comunicarse con esta clase.
+	private CombatSystem combatSystem;
 
-	// Use this for initialization
 	void Start () {
-		
+		combatSystem = new CombatSystem ();
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 		
 	}
+
+
 }

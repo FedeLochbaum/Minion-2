@@ -2,17 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TreeStats : MonoBehaviour {
+public class Player : Entity {
 
 	void Start () {
-		
+		stats = new TreeStats ();
 	}
 
 	void Update () {
 		
-	}
-
-	public bool isDie (){
-		return false;
 	}
 }

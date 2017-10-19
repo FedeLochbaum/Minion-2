@@ -1,16 +1,31 @@
-﻿using System.Collections;
+﻿using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class TurnSystem : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+	Queue<Entity> entities;
 		
+	public void newCombat(Entity[] entitiesArray){
+		entities = new Queue<Entity>(sortEntities (entitiesArray));
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	public void nextTurn(){
+		Entity first = entities.Dequeue ();
+		first.myTurn ();
+		entities.Enqueue (first);
 	}
+
+	public Entity[] sortEntities(Entity[] entities){
+		return (entities.Sort ((IComparer<Entity>)new EntityCompare ()));
+	}
+
+	public void removeEntity(Entity entity){
+		List<Entity> entitiesAux = new List<Entity> (entities.ToArray ());
+		entitiesAux.Remove (entity);
+		entitiesAux.ToArray ();
+		entities = new Queue<Entity>(entitiesAux);
+	}
+
+
 }
+	
