@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CombatSystem : MonoBehaviour {
+public class BattleSystem : MonoBehaviour {
 
 	private TurnSystem turnSystem;
 
 	private List<Entity> actualEntities;
 
 	private bool isCombat;
+	private GameSystem gameSystem;
 
-	void Start () {
+	public BattleSystem(GameSystem gameSystem){
+		this.gameSystem = gameSystem;
 		turnSystem = new TurnSystem ();
 		isCombat = false;
 	}
@@ -37,26 +39,21 @@ public class CombatSystem : MonoBehaviour {
 	public void checkIfWinPlayer(){
 		// el filter podria cambiar
 		List<Enemy> enemyEntities = actualEntities.FindAll (entity => entity.tag == "enemy");
-		if(enemyEntities.Count == 0){
+		if(enemyEntities.Count == 0)
 			win ();
-			restartSystem ();
-		}
-
 	}
 
 	public void checkIfDiePlayer(){
 		// el filter podria cambiar
 		List<Player> playerEntities = actualEntities.FindAll (entity => entity.tag == "player");
-		if(playerEntities.Count == 0){
+		if(playerEntities.Count == 0)
 			gameOver ();
-			restartSystem ();
-		}
 	}
 
-	public void newCombat(){
+	public void newBattle(){
 		actualEntities = GameObject.FindObjectsOfType ((typeof(Entity)));
-		isCombat = true;
 		turnSystem.newCombat (actualEntities);
+		isCombat = true;
 	}
 
 	public void finishTurn(){
@@ -67,8 +64,15 @@ public class CombatSystem : MonoBehaviour {
 
 	}
 
-	public void gameOver(){
+	public void nextPlayerTurn(){
+		turnSystem.nextTurn ();
 	}
 
-	public void win(){}
+	public void gameOver(){
+		gameSystem.gameOver ();
+	}
+
+	public void win(){
+		gameSystem.win ();
+	}
 }
