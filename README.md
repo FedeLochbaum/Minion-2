@@ -1,2 +1,2 @@
-# Minion-2
-Rpg Battle Logic
+# Rpg Battle Logic
+
