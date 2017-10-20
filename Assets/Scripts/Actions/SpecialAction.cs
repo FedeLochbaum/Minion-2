@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpecialAction : OfensiveAction {
+public abstract class SpecialAction : AffectAction {
 
-	public void apply (){
-		
-	}
 }

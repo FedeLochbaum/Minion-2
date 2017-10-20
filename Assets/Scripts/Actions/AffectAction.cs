@@ -5,9 +5,9 @@ using UnityEngine;
 public abstract class AffectAction : Action {
 
 	protected Entity creator;
-	protected Entity[] affectedEntities;
+	protected List<Entity> affectedEntities;
 
-	public AffectAction(Entity creator, Entity[] affectedEntities) {
+	public AffectAction(Entity creator, List<Entity> affectedEntities) {
 		this.creator = creator;
 		this.affectedEntities = affectedEntities;
 	}

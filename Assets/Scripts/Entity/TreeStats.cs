@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class TreeStats : MonoBehaviour {
 
-	void Start () {
-		
-	}
-
-	void Update () {
-		
-	}
-
 	public bool isDie (){
 		return false;
 	}
+
+	public float getPhysicalDamage (){}
+
+	public float takePhysicalDamage(){}
+
+
 }

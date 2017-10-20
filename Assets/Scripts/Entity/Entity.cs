@@ -6,7 +6,7 @@ public abstract class Entity : MonoBehaviour {
 
 	protected TreeStats stats; 
 	protected SpecialAction especial;
-	protected ActionManager actionManager;
+	protected ActionSystem actionManager;
 
 	void Start () {}
 
@@ -20,8 +20,15 @@ public abstract class Entity : MonoBehaviour {
 
 	public abstract void selectAction ();
 
+	// tal vez cambie esta.
 	public abstract void applyAction (Action action);
 
+
+	//No se si se usará.
 	public abstract void receiveAction (Action enemyAction);
+
+	public TreeStats getStats(){
+		return stats;
+	}
 
 }
