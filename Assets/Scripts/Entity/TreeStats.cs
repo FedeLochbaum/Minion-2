@@ -8,9 +8,9 @@ public class TreeStats : MonoBehaviour {
 		return false;
 	}
 
-	public float getPhysicalDamage (){}
+	public PhysicalDamage getPhysicalDamage (){}
 
-	public float takePhysicalDamage(){}
+	public MagicalDamage getMagicalDamage (){}
 
-
+	public void takeDamage(float finalDamage){}
 }

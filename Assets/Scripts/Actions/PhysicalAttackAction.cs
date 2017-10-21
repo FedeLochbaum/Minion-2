@@ -5,7 +5,7 @@ using UnityEngine;
 public class PhysicalAttackAction : AffectAction {
 
 	public void apply (){
-		float physicalDamage = creator.getStats ().getPhysicalDamage ();
-		affectedEntities.ForEach( entity => entity.getStats().takePhysicalDamage(physicalDamage));
+		PhysicalDamage physicalDamage = creator.getStats ().getPhysicalDamage ();
+		affectedEntities.ForEach( entity => physicalDamage.applyDamage(entity));
 	}
 }
