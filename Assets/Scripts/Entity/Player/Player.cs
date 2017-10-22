@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class Player : Entity {
 
+	private List<Spell> magicSkill;
+	private SpecialSkill special;
+	// Falta Inventario con Items..
+
 	void Start () {
 		stats = new TreeStats ();
+		magicSkill = new List<Spell> ();
+		special = new SpecialSkill (stats);
 	}
 
 	void Update () {
@@ -18,8 +24,28 @@ public class Player : Entity {
 	}
 
 	public override void selectAction(){
-		// UI de seleccions
+		// Desplegar UI de seleccion.
+		// La UI llamara a cualquiera de los metodos de abajo.
 	}
 
+	public void selectPhysicalAttackAction(Entity enemy){
+		applyAction (new PhysicalAttackAction (this, new List<Entity>{enemy}));
+	}
+
+	public void selectRunAction(){
+		applyAction (new RunAction ());
+	}
+
+	public void selectMagicalAction(int spellPosition, List<Entity> affectedEntities){
+		applyAction (new MagicalAction(this, affectedEntities, magicSkill[spellPosition]));
+	}
+		
+	public void selectSpecialAction(List<Entity> affectedEntities){
+		applyAction (new MagicalAction (this, affectedEntities, special));
+	}
+		
+	public void selectUseItem(Item item, List<Entity> affectedEntities){
+		applyAction (new UseItemAction (this, affectedEntities, item));
+	}
 
 }

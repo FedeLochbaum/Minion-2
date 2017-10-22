@@ -5,7 +5,6 @@ using UnityEngine;
 public abstract class Entity : MonoBehaviour {
 
 	protected TreeStats stats; 
-	protected SpecialAction especial;
 	protected ActionSystem actionSystem;
 
 	void Start () {
@@ -28,9 +27,6 @@ public abstract class Entity : MonoBehaviour {
 	public void applyAction (Action action){
 		actionSystem.ApplyAction (action);
 	}
-		
-	//No se si se usará.
-	//public abstract void receiveAction (Action enemyAction);
 
 	public TreeStats getStats(){
 		return stats;
