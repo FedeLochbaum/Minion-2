@@ -9,7 +9,7 @@ public class NormalStrategy : BattleStrategy {
 		return null;
 	}
 
-	public override List<Entity> selectTarget (List<Entity> enemies){
+	public override List<Entity> selectTargets (List<Entity> enemies){
 		// Falta implementar.
 		return null;
 	}
