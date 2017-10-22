@@ -8,19 +8,9 @@ public class Player : Entity {
 	private SpecialSkill special;
 	// Falta Inventario con Items..
 
-	void Start () {
-		stats = new TreeStats ();
+	public Player () : base() {
 		magicSkill = new List<Spell> ();
 		special = new SpecialSkill (stats);
-	}
-
-	void Update () {
-		
-	}
-
-	public override float actionSpeed ()
-	{
-		return stats.actionSpeed ();
 	}
 
 	public override void selectAction(){

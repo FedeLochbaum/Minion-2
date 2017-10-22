@@ -7,7 +7,8 @@ public abstract class Entity : MonoBehaviour {
 	protected TreeStats stats; 
 	protected ActionSystem actionSystem;
 
-	void Start () {
+	public Entity () {
+		stats = new TreeStats ();
 		actionSystem = GameObject.FindObjectOfType<ActionSystem> ();
 	}
 
@@ -15,7 +16,10 @@ public abstract class Entity : MonoBehaviour {
 		return stats.isDie ();
 	}
 
-	public abstract float actionSpeed();
+	public float actionSpeed ()
+	{
+		return stats.actionSpeed ();
+	}
 
 	public void myTurn(){
 		// por ahora solo consiste en esto mismo.

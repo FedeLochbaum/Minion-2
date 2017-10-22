@@ -2,15 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour {
+public class Enemy : Entity {
 
-	// Use this for initialization
-	void Start () {
-		
+	private List<Entity> battlePlayers;
+	private BattleStrategy strategy;
+
+	// Como el Game System es el que lo crea le puede pasar a los jugadores(no los de game System, sino el de battle system).
+	public Enemy (List<Entity> battlePlayers, BattleStrategy strategy) : base() {
+		this.battlePlayers = battlePlayers;
+		this.strategy = strategy;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	public override void selectAction(){
+		applyAction (strategy.getBestAction(this, battlePlayers));
 	}
 }
