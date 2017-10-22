@@ -6,11 +6,11 @@ public class OffensiveSpell : Spell {
 
 	private MagicalDamage magicalDamage;
 
-	public OffensiveSpell(TreeStats stats, RangeInt rangeDamage) : base(stats) {
-		magicalDamage = new MagicalDamage (stats, rangeDamage);
+	public OffensiveSpell(TreeStats stats, float minDamage, float maxDamage) : base(stats) {
+		magicalDamage = new MagicalDamage (stats, minDamage, maxDamage);
 	}
 
-	public void apply(Entity entity){
+	public override void apply(Entity entity){
 		magicalDamage.applyDamage (entity);
 	}
 }

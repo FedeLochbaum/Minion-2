@@ -5,7 +5,7 @@ public class TurnSystem : MonoBehaviour {
 
 	Queue<Entity> entities;
 		
-	public void newCombat(Entity[] entitiesArray){
+	public void newCombat(List<Entity> entitiesArray){
 		entities = new Queue<Entity>(sortEntities (entitiesArray));
 	}
 
@@ -15,8 +15,9 @@ public class TurnSystem : MonoBehaviour {
 		entities.Enqueue (first);
 	}
 
-	public Entity[] sortEntities(Entity[] entities){
-		return (entities.Sort ((IComparer<Entity>)new EntityCompare ()));
+	public List<Entity> sortEntities(List<Entity> entities){
+		entities.Sort ((new EntityCompare ()));
+		return entities;
 	}
 
 	public void removeEntity(Entity entity){

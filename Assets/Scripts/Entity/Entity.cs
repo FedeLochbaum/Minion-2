@@ -6,9 +6,11 @@ public abstract class Entity : MonoBehaviour {
 
 	protected TreeStats stats; 
 	protected SpecialAction especial;
-	protected ActionSystem actionManager;
+	protected ActionSystem actionSystem;
 
-	void Start () {}
+	void Start () {
+		actionSystem = GameObject.FindObjectOfType<ActionSystem> ();
+	}
 
 	public bool isDie (){
 		return stats.isDie ();
@@ -16,16 +18,19 @@ public abstract class Entity : MonoBehaviour {
 
 	public abstract float actionSpeed();
 
-	public abstract void myTurn();
+	public void myTurn(){
+		// por ahora solo consiste en esto mismo.
+		selectAction ();
+	}
 
 	public abstract void selectAction ();
 
-	// tal vez cambie esta.
-	public abstract void applyAction (Action action);
-
-
+	public void applyAction (Action action){
+		actionSystem.ApplyAction (action);
+	}
+		
 	//No se si se usará.
-	public abstract void receiveAction (Action enemyAction);
+	//public abstract void receiveAction (Action enemyAction);
 
 	public TreeStats getStats(){
 		return stats;

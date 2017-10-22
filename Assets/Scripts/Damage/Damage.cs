@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Damage : MonoBehaviour {
 
-	private RangeInt rangeDamage;
+	private float minDamage;
+	private float maxDamage;
 	private TreeStats playerStats;
 
-	public Damage(TreeStats stats, RangeInt damage){
+	public Damage(TreeStats stats, float minDamage, float maxDamage){
 		playerStats = stats;
-		rangeDamage = damage;
+		this.minDamage = minDamage;
+		this.maxDamage = maxDamage;
 	}
 
 	public void applyDamage(Entity entity){
@@ -25,11 +27,11 @@ public class Damage : MonoBehaviour {
 
 		float randomProbably = Random.Range(0, 99);
 		if (randomProbably < 10) {
-			return (Random.Range (rangeDamage) * 1.5f);
+			return (Random.Range (minDamage, maxDamage) * 1.5f);
 		} else if (randomProbably < 30) {
-			return rangeDamage.end;
+			return maxDamage;
 		}
 
-		return Random.Range (rangeDamage);
+		return Random.Range (minDamage, maxDamage);
 	}
 }

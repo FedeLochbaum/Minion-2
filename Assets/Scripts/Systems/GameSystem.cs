@@ -10,7 +10,7 @@ public class GameSystem : MonoBehaviour {
 	void Start () {
 		battleSystem = new BattleSystem (this);
 		actionSystem = new ActionSystem (this);
-		teamPlayer = GameObject.FindObjectsOfType<Player> ();
+		teamPlayer = new List<Player>(GameObject.FindObjectsOfType<Player> ());
 	}
 
 	void Update () {

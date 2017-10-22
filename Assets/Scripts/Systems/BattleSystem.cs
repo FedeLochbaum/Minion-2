@@ -1,6 +1,5 @@
-﻿using System.Collections;
+﻿using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class BattleSystem : MonoBehaviour {
 
@@ -38,20 +37,20 @@ public class BattleSystem : MonoBehaviour {
 
 	public void checkIfWinPlayer(){
 		// el filter podria cambiar
-		List<Enemy> enemyEntities = actualEntities.FindAll (entity => entity.tag == "enemy");
+		List<Entity> enemyEntities = actualEntities.FindAll (entity => entity.tag == "enemy");
 		if(enemyEntities.Count == 0)
 			win ();
 	}
 
 	public void checkIfDiePlayer(){
 		// el filter podria cambiar
-		List<Player> playerEntities = actualEntities.FindAll (entity => entity.tag == "player");
+		List<Entity> playerEntities = actualEntities.FindAll (entity => entity.tag == "player");
 		if(playerEntities.Count == 0)
 			gameOver ();
 	}
 
 	public void newBattle(){
-		actualEntities = GameObject.FindObjectsOfType ((typeof(Entity)));
+		actualEntities = new List<Entity>(GameObject.FindObjectsOfType<Entity>());
 		turnSystem.newCombat (actualEntities);
 		isCombat = true;
 	}

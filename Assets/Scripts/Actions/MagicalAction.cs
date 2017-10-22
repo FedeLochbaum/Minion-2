@@ -6,11 +6,11 @@ public class MagicalAction : AffectAction {
 
 	private Spell spell;
 
-	public MagicalAction(Spell spell){
+	public MagicalAction(Entity creator, List<Entity> affectedEntities, Spell spell) : base(creator, affectedEntities) {
 		this.spell = spell;
 	}
 
-	public void apply (){
+	public override void apply (){
 		affectedEntities.ForEach( entity => spell.apply(entity));
 	}
 }

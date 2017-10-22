@@ -11,4 +11,15 @@ public class Player : Entity {
 	void Update () {
 		
 	}
+
+	public override float actionSpeed ()
+	{
+		return stats.actionSpeed ();
+	}
+
+	public override void selectAction(){
+		// UI de seleccions
+	}
+
+
 }

@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class PhysicalAttackAction : AffectAction {
 
-	public void apply (){
+	public PhysicalAttackAction(Entity creator, List<Entity> affectedEntities) : base(creator, affectedEntities){
+		
+	}
+
+	public override void apply (){
 		PhysicalDamage physicalDamage = creator.getStats ().getPhysicalDamage ();
 		affectedEntities.ForEach( entity => physicalDamage.applyDamage(entity));
 	}

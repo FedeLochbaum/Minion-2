@@ -3,5 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PhysicalDamage : Damage {
-	// Luego sera implementado
+	// No se si sera necesario.
+
+	public PhysicalDamage(TreeStats stats, float minDamage, float maxDamage) : base(stats, minDamage, maxDamage) {
+	}
 }
