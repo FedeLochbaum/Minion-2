@@ -20,6 +20,10 @@ public class TreeStats : MonoBehaviour {
 
 	public void takeDamage(float finalDamage){}
 
+	public void applyEffect(Effect effect){
+		// Podria ponerlo en una lista de efectos y a estos decirles decirles update desp de cada turno
+	}
+
 	public float actionSpeed(){
 		return 1f;
 	}

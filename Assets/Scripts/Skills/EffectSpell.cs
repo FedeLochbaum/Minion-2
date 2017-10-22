@@ -3,9 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EffectSpell : Spell {
-	// no posee damage, tiene un efecto
 
-	public EffectSpell(TreeStats stats): base(stats){}
+	private Effect effect;
 
-	public override void apply(Entity entity){}
+	public EffectSpell(TreeStats stats, Effect effect): base(stats){
+		this.effect = effect;
+	}
+
+	public override void apply(Entity entity){
+		entity.getStats ().applyEffect (effect);
+	}
 }
