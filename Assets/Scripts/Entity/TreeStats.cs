@@ -24,6 +24,10 @@ public class TreeStats : MonoBehaviour {
 		// Podria ponerlo en una lista de efectos y a estos decirles decirles update desp de cada turno
 	}
 
+	public void updateTurn(){
+		// Updatea efectos
+	}
+
 	public float actionSpeed(){
 		return 1f;
 	}
