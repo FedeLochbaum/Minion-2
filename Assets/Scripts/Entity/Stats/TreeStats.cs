@@ -6,6 +6,7 @@ public class TreeStats : MonoBehaviour {
 
 	private List<Effect> effects;
 
+	private List<NodeStat> nodes;
 	// Stats principales
 	private Strength str;
 	private Agility agi;
@@ -17,12 +18,15 @@ public class TreeStats : MonoBehaviour {
 
 	public TreeStats(){
 		effects = new List<Effect> ();
+
 		str  = new Strength ();
 		agi  = new Agility ();
 		vit  = new Vitality ();
 		inte = new Intelligence ();
 		dex  = new Dexterity ();
 		luk  = new Luck ();
+		// simplemente para utilizar foreach. (sino, chain of responsability)
+		nodes = new List<NodeStat>{ str, agi, vit, inte, dex, luk };
 	}
 
 	public PhysicalDamage getPhysicalDamage (){
@@ -41,13 +45,9 @@ public class TreeStats : MonoBehaviour {
 
 	public void updateTurn(){
 		//Al principio de cada turno.
-		// No se si meterlo en una lista, no me gusta así pero quiero poder acceder a cada uno especificamente.
-		str.updateEffects(effects);
-		agi.updateEffects(effects);
-		vit.updateEffects(effects);
-		inte.updateEffects(effects);
-		dex.updateEffects(effects);
-		luk.updateEffects(effects);
+		foreach(NodeStat stat in nodes){
+			stat.updateEffects(effects);
+		}
 	}
 
 	public bool isDie (){
