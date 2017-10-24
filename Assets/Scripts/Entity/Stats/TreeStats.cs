@@ -25,23 +25,13 @@ public class TreeStats : MonoBehaviour {
 		luk  = new Luck ();
 	}
 
-	public bool isDie (){
-		// falta terminar
-		return vit.isDie();
-	}
-		
-	public float actionSpeed(){
-		// falta terminar
-		return agi.attackSpeed();
-	}
-
 	public PhysicalDamage getPhysicalDamage (){
-		// falta terminar
+		// falta implementar.
 		return new PhysicalDamage (this, 0.5f, 3f);
 	}
 
 	public MagicalDamage getMagicalDamage (){
-		// falta terminar
+		// falta implementar.
 		return new MagicalDamage (this, 0.1f, 2f);
 	}
 
@@ -58,6 +48,14 @@ public class TreeStats : MonoBehaviour {
 		inte.updateEffects(effects);
 		dex.updateEffects(effects);
 		luk.updateEffects(effects);
+	}
+
+	public bool isDie (){
+		return vit.isDie();
+	}
+
+	public float actionSpeed(){
+		return agi.attackSpeed();
 	}
 
 	public void applyEffect(Effect effect){
