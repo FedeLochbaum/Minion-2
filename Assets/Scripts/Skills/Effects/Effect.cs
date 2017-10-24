@@ -14,6 +14,8 @@ public abstract class Effect : MonoBehaviour {
 		if (turns > 0) {
 			applyEffect (stats);
 			turns--;
+		} else {
+			stats.removeEffect (this);
 		}
 	}
 
