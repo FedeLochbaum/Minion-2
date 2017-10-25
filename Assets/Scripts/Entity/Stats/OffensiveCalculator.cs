@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class OffensiveCalculator : Calculator {
-
 	public OffensiveCalculator(Stats stats) : base(stats){
 	}
 
 	public float getMinPhysicalDamage(){
-		// aplicar decremento con efectos
-		return ((stats.level () / 4) + stats.getStr () + (stats.getDex () / 5) + (stats.getLuk () / 3));
+		float Dmg = ((stats.level () / 4) + stats.getStr () + (stats.getDex () / 5) + (stats.getLuk () / 3));
+
+		foreach (Effect effect in effects) {
+			Dmg = effect.affectPhysicalDamage (Dmg);
+		}
+			
+		return Dmg;
 	}
 
 	public float getMaxPhysicalDamage(){
@@ -18,8 +22,13 @@ public class OffensiveCalculator : Calculator {
 	}
 
 	public float getMinMagicalDamage(){
-		// aplicar decremento con efectos
-		return (stats.level() / 4) + stats.getInt() + (stats.getInt() / 2) + (stats.getDex() / 2) + (stats.getLuk() / 3);
+		float MDmg = (stats.level() / 4) + stats.getInt() + (stats.getInt() / 2) + (stats.getDex() / 2) + (stats.getLuk() / 3);
+
+		foreach (Effect effect in effects) {
+			MDmg = effect.affectMagicalDamage (MDmg);
+		}
+			
+		return MDmg;
 	}
 
 	public float getMaxMagicalDamage(){
@@ -27,9 +36,13 @@ public class OffensiveCalculator : Calculator {
 	}
 
 	public float attackSpeed(){
-		// aplicar decremento con efectos
+		float Aspeed = (200 - (200 - (Mathf.Sqrt (stats.getAgi () * 9.999f + stats.getDex () * 0.19212f))));
 
-		return (200 - (200 - (Mathf.Sqrt(stats.getAgi() * 9.999f + stats.getDex() * 0.19212f))));
+		foreach (Effect effect in effects) {
+			Aspeed = effect.affectAttackSpeed (Aspeed);
+		}
+
+		return Aspeed;
 	}
 
 	public override void update(){

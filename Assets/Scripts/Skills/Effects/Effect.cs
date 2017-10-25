@@ -17,4 +17,12 @@ public abstract class Effect : MonoBehaviour {
 			stats.removeEffect (this);
 		}
 	}
+
+	public float affectPhysicalDefense(float def){
+		return def;
+	}
+
+	public float affectMagicalDefense(float def){
+		return def;
+	}
 }

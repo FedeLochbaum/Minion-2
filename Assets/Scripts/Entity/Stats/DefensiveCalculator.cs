@@ -8,13 +8,21 @@ public class DefensiveCalculator : Calculator {
 	}
 
 	public float reduceMagicalDamage(float damage){
-		// aplicar decremento con efectos
-		return damage - (stats.getInt () + stats.getVit () / 5 + stats.getDex () / 5 + stats.level () / 4);
+		float MDef = (stats.getInt () + stats.getVit () / 5 + stats.getDex () / 5 + stats.level () / 4);
+		foreach (Effect effect in effects) {
+			MDef = effect.affectMagicalDefense (MDef);
+		}
+
+		return damage - MDef;
 	}
 
 	public float reducePhysicalDamage(float damage){
-		// aplicar decremento con efectos
-		return damage - (stats.getVit / 2) + Mathf.Max((stats.getVit() * 0.3), (stats.getVit() * stats.getVit() / 150) - 1);
+		float Def = (stats.getVit / 2) + Mathf.Max ((stats.getVit () * 0.3), (stats.getVit () * stats.getVit () / 150) - 1);
+		foreach (Effect effect in effects) {
+			Def = effect.affectPhysicalDefense (Def);
+		}
+			
+		return damage - Def;
 	}
 
 	public override void update(){
