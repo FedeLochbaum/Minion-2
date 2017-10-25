@@ -18,5 +18,14 @@ public abstract class NodeStat : MonoBehaviour {
 	public void updateEffects(List<Effect> effects){
 	}
 
+	public void update(){
+		foreach (NodeStat stat in dependentStats) {
+			stat.update ();
+		}
+	}
+
+	public float getValue(){
+		return value;
+	}
 
 }

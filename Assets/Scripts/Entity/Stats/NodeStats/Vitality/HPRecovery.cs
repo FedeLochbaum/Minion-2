@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Life : MonoBehaviour {
+public class HPRecovery : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
