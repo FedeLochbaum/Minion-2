@@ -2,15 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SPRecovery : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
+public class SPRecovery : LeafStat {
 	
-	// Update is called once per frame
-	void Update () {
-		
+	public SPRecovery(NodeStat root) :base(root) {}
+
+	public new void update(){
+		value = root.getValue () / 6f;
 	}
 }

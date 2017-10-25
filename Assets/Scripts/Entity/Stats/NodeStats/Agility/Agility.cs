@@ -19,6 +19,4 @@ public class Agility : NodeStat {
 	public float attackSpeed() {
 		return attackSpeedN.getValue();
 	}
-
-
 }

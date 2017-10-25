@@ -2,15 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CriticalHitRate : MonoBehaviour {
+public class CriticalHitRate : LeafStat {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+	public CriticalHitRate(NodeStat root) :base(root) {}
+
+	public new void update(){
+		value = root.getValue () * 0.3f;
 	}
 }

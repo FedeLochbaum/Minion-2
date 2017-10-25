@@ -2,15 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoftMDEF : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
+public class SoftMDEF : LeafStat {
 	
-	// Update is called once per frame
-	void Update () {
-		
+	public SoftMDEF(NodeStat root) :base(root) {}
+
+	public new void update(){
+		value = root.getValue () / 2f;
 	}
 }
