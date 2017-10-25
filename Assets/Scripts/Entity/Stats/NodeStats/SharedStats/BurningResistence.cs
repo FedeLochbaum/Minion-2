@@ -2,15 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BurningResistence : MonoBehaviour {
+public class BurningResistence : LeafStat {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+	public BurningResistence(NodeStat root) :base(root) {}
+
+	public new void update(){
+		value = root.getValue () * 0.1f;
 	}
 }

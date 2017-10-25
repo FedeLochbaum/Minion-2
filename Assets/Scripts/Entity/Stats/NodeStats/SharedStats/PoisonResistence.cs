@@ -2,15 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PoisonResistence : MonoBehaviour {
+public class PoisonResistence : LeafStat {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+	public PoisonResistence(NodeStat root) :base(root) {}
+
+	public new void update(){
+		value = root.getValue ();
 	}
 }

@@ -2,15 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EffectResistences : MonoBehaviour {
+public class EffectResistences : NodeStat {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+	private HealingEffect healingEffect;
+	private PoisonResistence poisonResistence;
+	private SleepingResistence sleepingResistence;
+	private BurningResistence burningResistence;
+
+	public EffectResistences(float vitValue) :base(){
+		// Luego ver como hacer que las hojas tengan un calculo diferente dependiendo el padre
+		value = vitValue;
+		healingEffect = new HealingEffect (this);
+		poisonResistence = new PoisonResistence (this);
+		sleepingResistence = new SleepingResistence (this);
+		burningResistence = new BurningResistence (this);
+		addDependentStat (healingEffect);
+		addDependentStat (poisonResistence);
+		addDependentStat (sleepingResistence);
+		addDependentStat (burningResistence);
+		update ();
 	}
 }

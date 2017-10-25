@@ -2,15 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MaxHP : MonoBehaviour {
+public class MaxHP : LeafStat {
 
-	// Use this for initialization
-	void Start () {
-		
+	private float defaultValue, actualHp;
+
+
+	public MaxHP(NodeStat root) :base(root) {
+		defaultValue = 100f;
+		actualHp = defaultValue;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	public new void update(){
+		// VALUE = max Life
+		value = defaultValue + (root.getValue () * defaultValue);
+	}
+
+	public bool isDie(){
+		return actualHp <= 0;
 	}
 }

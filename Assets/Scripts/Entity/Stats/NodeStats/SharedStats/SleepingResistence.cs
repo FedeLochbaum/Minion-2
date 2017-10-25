@@ -2,15 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SleepingResistence : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
+public class SleepingResistence : LeafStat {
 	
-	// Update is called once per frame
-	void Update () {
-		
+	public SleepingResistence(NodeStat root) :base(root) {}
+
+	public new void update(){
+		value = root.getValue ();
 	}
 }
