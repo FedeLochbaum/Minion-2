@@ -6,7 +6,7 @@ public class FleeRate : LeafStat {
 
 	public FleeRate(NodeStat root) :base(root) {}
 
-	public void update(){
+	public new void update(){
 		value = root.getValue ();
 	}
 }

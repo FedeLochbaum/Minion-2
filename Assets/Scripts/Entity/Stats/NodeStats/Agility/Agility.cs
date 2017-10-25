@@ -11,8 +11,8 @@ public class Agility : NodeStat {
 		value = 25;
 		attackSpeedN = new AttackSpeed (this);
 		fleeRate = new FleeRate (this);
-		dependentStats.Add (attackSpeed);
-		dependentStats.Add (fleeRate);
+		addDependentStat (attackSpeedN);
+		addDependentStat (fleeRate);
 		update ();
 	}
 		

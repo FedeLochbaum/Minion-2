@@ -2,15 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StatusATK : MonoBehaviour {
+public class StatusATK : LeafStat {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+	public StatusATK(NodeStat root) :base(root) {}
+
+	public new void update(){
+		value = root.getValue ();
 	}
 }

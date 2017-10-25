@@ -6,7 +6,7 @@ public class AttackSpeed : LeafStat {
 	
 	public AttackSpeed(NodeStat root) :base(root) {}
 
-	public void update(){
+	public new void update(){
 		value = root.getValue () / 4f;
 	}
 }
