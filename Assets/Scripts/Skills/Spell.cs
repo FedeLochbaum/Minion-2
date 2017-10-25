@@ -5,8 +5,10 @@ using UnityEngine;
 public abstract class Spell : MonoBehaviour {
 
 	protected Stats playerStats;
+	protected float cost;
 
-	public Spell(Stats stats){
+	public Spell(Stats stats, float cost){
+		this.cost = cost;
 		playerStats = stats;
 	}
 

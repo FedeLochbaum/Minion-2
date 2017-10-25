@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpecialSkill : Spell {
 
-	public SpecialSkill(Stats stats) : base(stats){
+	public SpecialSkill(Stats stats, float cost) : base(stats, cost){
 		// Aun no definí como se ira a implementar las habilidades especiales. Podria tener una lista de spells
 	}
 

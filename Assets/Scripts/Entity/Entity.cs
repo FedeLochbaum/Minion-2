@@ -22,8 +22,8 @@ public abstract class Entity : MonoBehaviour {
 	}
 
 	public void myTurn(){
-		stats.updateTurn ();
 		selectAction ();
+		stats.updateTurn ();
 	}
 
 	public abstract void selectAction ();

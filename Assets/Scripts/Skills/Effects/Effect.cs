@@ -12,12 +12,9 @@ public abstract class Effect : MonoBehaviour {
 
 	public void update(Stats stats){
 		if (turns > 0) {
-			applyEffect (stats);
 			turns--;
 		} else {
 			stats.removeEffect (this);
 		}
 	}
-
-	public abstract void applyEffect (Stats stats);
 }

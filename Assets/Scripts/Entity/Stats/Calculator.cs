@@ -2,50 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Calculator : MonoBehaviour {
+public abstract class Calculator : MonoBehaviour {
 
-	// tiene vida y mana
-	private CalculatorState calculatorState;
-	private CalculatorDamage calculatorDamage;
-	private CalculatorDefense calculatorDefense;
+	protected List<Effect> effects;
+	protected Stats stats;
 
-
-	public Calculator(){
-		calculatorState = new CalculatorState();
-		calculatorDamage = new CalculatorDamage();
-		calculatorDefense = new CalculatorDefense ();
-	}
-
-	public float getMinPhysicalDamage(){
-		return calculatorDamage.getMinPhysicalDamage ();
-	}
-
-	public float getMaxPhysicalDamage(){
-		return calculatorDamage.getMaxPhysicalDamage();
-	}
-
-	public float getMinMagicalDamage(){
-		return calculatorDamage.getMinMagicalDamage ();
-	}
-
-	public float getMaxMagicalDamage(){
-		return calculatorDamage.getMaxMagicalDamage ();
-	}
-
-	public void takeDamage(float finalDamage){
-		calculatorState.takeDamage (calculatorDefense.reduceDamage (finalDamage));
+	public Calculator(Stats stats) {
+		effects = new List<Effect> ();
+		this.stats = stats;
 	}
 
 	public void updateEffects(){
-		// le dice a cada efecto, applica
+		foreach (Effect effect in effects) {
+			effect.update (stats);
+		}
 	}
 
-	public bool isDie(){
-		
+	public void addEffect(Effect effect){
+		effects.Add (effect);
 	}
 
-	public float attackSpeed(){
-		
+	public void removeEffect(Effect effect){
+		effects.Remove (effect);
 	}
 
+
+	// se llama a update cuando termina el turno
+	public abstract void update ();
 }

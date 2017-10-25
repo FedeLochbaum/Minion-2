@@ -14,11 +14,6 @@ public class Damage : MonoBehaviour {
 		this.maxDamage = maxDamage;
 	}
 
-	public void applyDamage(Entity entity){
-		float finalDamage = generateDamage ();
-		entity.getStats().takeDamage (finalDamage);
-	}
-
 	public float generateDamage () {
 		//0 - 9 Excelent Damage
 		//10 - 29 Critical Damage

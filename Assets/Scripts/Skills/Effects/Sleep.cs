@@ -6,9 +6,5 @@ public class Sleep : Curse {
 
 	public Sleep(int sleepTurns) : base(sleepTurns){
 	}
-
-	public override void applyEffect (Stats stats)
-	{
-		//
-	}
+		
 }
