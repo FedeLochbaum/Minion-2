@@ -4,9 +4,9 @@ using UnityEngine;
 
 public abstract class Spell : MonoBehaviour {
 
-	protected TreeStats playerStats;
+	protected Stats playerStats;
 
-	public Spell(TreeStats stats){
+	public Spell(Stats stats){
 		playerStats = stats;
 	}
 

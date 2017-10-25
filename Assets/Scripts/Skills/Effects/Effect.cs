@@ -10,7 +10,7 @@ public abstract class Effect : MonoBehaviour {
 		this.turns = turns;	
 	}
 
-	public void update(TreeStats stats){
+	public void update(Stats stats){
 		if (turns > 0) {
 			applyEffect (stats);
 			turns--;
@@ -19,5 +19,5 @@ public abstract class Effect : MonoBehaviour {
 		}
 	}
 
-	public abstract void applyEffect (TreeStats stats);
+	public abstract void applyEffect (Stats stats);
 }

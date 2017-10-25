@@ -6,7 +6,7 @@ public class OffensiveSpell : Spell {
 
 	private MagicalDamage magicalDamage;
 
-	public OffensiveSpell(TreeStats stats, float minDamage, float maxDamage) : base(stats) {
+	public OffensiveSpell(Stats stats, float minDamage, float maxDamage) : base(stats) {
 		magicalDamage = new MagicalDamage (stats, minDamage, maxDamage);
 	}
 

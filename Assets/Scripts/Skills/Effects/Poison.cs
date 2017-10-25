@@ -7,7 +7,7 @@ public class Poison : Curse {
 	public Poison(int poisonTurns) : base(poisonTurns){
 	}
 
-	public override void applyEffect (TreeStats stats)
+	public override void applyEffect (Stats stats)
 	{
 		throw new System.NotImplementedException ();
 	}

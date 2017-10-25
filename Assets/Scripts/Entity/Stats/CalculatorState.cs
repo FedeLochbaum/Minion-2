@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoftDEF : MonoBehaviour {
+public class CalculatorState : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

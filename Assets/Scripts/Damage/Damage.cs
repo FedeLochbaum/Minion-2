@@ -6,9 +6,9 @@ public class Damage : MonoBehaviour {
 
 	private float minDamage;
 	private float maxDamage;
-	private TreeStats playerStats;
+	private Stats playerStats;
 
-	public Damage(TreeStats stats, float minDamage, float maxDamage){
+	public Damage(Stats stats, float minDamage, float maxDamage){
 		playerStats = stats;
 		this.minDamage = minDamage;
 		this.maxDamage = maxDamage;

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public abstract class Entity : MonoBehaviour {
 
-	protected TreeStats stats; 
+	protected Stats stats; 
 	protected ActionSystem actionSystem;
 
 	public Entity () {
-		stats = new TreeStats ();
+		stats = new Stats ();
 		actionSystem = GameObject.FindObjectOfType<ActionSystem> ();
 	}
 
@@ -32,7 +32,7 @@ public abstract class Entity : MonoBehaviour {
 		actionSystem.ApplyAction (action);
 	}
 
-	public TreeStats getStats(){
+	public Stats getStats(){
 		return stats;
 	}
 
