@@ -13,7 +13,7 @@ public class DefensiveCalculator : Calculator {
 			MDef = effect.affectMagicalDefense (MDef);
 		}
 
-		return damage - MDef;
+		return applyDodgeRate(damage - MDef);
 	}
 
 	public float reducePhysicalDamage(float damage){
@@ -22,7 +22,20 @@ public class DefensiveCalculator : Calculator {
 			Def = effect.affectPhysicalDefense (Def);
 		}
 			
-		return damage - Def;
+		return applyDodgeRate(damage - Def);
+	}
+
+	public float applyDodgeRate(float damage){
+		float dodgePercentage = 100 - flee();
+
+		if (Random.Range (1, 100) <= dodgePercentage) {
+			return 0;
+		}
+		return damage;
+	}
+
+	public float flee(){
+		return (stats.level() + stats.getAgi() + stats.getLuk() / 5f  * (1f - ((Random.Range(1f,4f) - 2f) * 0.1f)));
 	}
 
 	public override void update(){

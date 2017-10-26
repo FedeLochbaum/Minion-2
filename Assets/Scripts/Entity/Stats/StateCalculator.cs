@@ -13,11 +13,11 @@ public class StateCalculator : Calculator {
 	}
 
 	public float maxHp(){
-		return Mathf.Floor( 35f * (1 + stats.getVit() * 0.01));
+		return Mathf.Floor( 35f * (1 + stats.getVit() * 0.01f));
 	}
 
 	public float maxSp(){
-		return Mathf.Floor( 10f * (1 + stats.getInt() * 0.01));
+		return Mathf.Floor( 10f * (1 + stats.getInt() * 0.01f));
 	}
 
 	public bool isDie(){
