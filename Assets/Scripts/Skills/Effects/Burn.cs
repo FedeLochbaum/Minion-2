@@ -10,7 +10,7 @@ public class Burn : Curse {
 		this.fireDamage = fireDamage;
 	}
 
-	public float affectHp(float hp){
+	public new float affectHp(float hp){
 		return hp - fireDamage;
 	}
 }
