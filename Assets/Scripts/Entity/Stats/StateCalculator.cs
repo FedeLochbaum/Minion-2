@@ -6,10 +6,18 @@ public class StateCalculator : Calculator {
 
 	private float hp;
 	private float sp;
-
+	// Faltaria aplicar las resistencias.
 	public StateCalculator(Stats stats) : base(stats){
-		hp = 100f;
-		sp = 100f;
+		hp = maxHp();
+		sp = maxSp();
+	}
+
+	public float maxHp(){
+		return Mathf.Floor( 35f * (1 + stats.getVit() * 0.01));
+	}
+
+	public float maxSp(){
+		return Mathf.Floor( 10f * (1 + stats.getInt() * 0.01));
 	}
 
 	public bool isDie(){
@@ -31,8 +39,18 @@ public class StateCalculator : Calculator {
 		}
 	}
 
+	public void hpRecovery(){
+		hp = hp + Mathf.Floor((Mathf.Max( 1, Mathf.Floor( maxHp() / 200) )) + Mathf.Floor(stats.getVit() / 5));
+	}
+
+	public void spRecovery(){
+		sp = sp + Mathf.Floor(1 + (Mathf.Floor( maxSp() / 100 )) + Mathf.Floor(stats.getInt() / 6));
+	}
+
 	public override void update(){
 		affectStateValues ();
+		hpRecovery ();
+		spRecovery ();
 		updateEffects ();	
 	}
 }

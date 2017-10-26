@@ -7,7 +7,7 @@ public class OffensiveCalculator : Calculator {
 	}
 
 	public float getMinPhysicalDamage(){
-		float Dmg = ((stats.level () / 4) + stats.getStr () + (stats.getDex () / 5) + (stats.getLuk () / 3));
+		float Dmg = Mathf.Floor((stats.level () / 4) + stats.getStr () + (stats.getDex () / 5) + (stats.getLuk () / 3));
 		foreach (Effect effect in effects) {
 			Dmg = effect.affectPhysicalDamage (Dmg);
 		}
@@ -21,7 +21,7 @@ public class OffensiveCalculator : Calculator {
 	}
 
 	public float getMinMagicalDamage(){
-		float MDmg = (stats.level() / 4) + stats.getInt() + (stats.getInt() / 2) + (stats.getDex() / 2) + (stats.getLuk() / 3);
+		float MDmg = Mathf.Floor ( Mathf.Floor(stats.level() / 4) + stats.getInt() + Mathf.Floor(stats.getInt() / 2) + Mathf.Floor(stats.getDex() / 2) + Mathf.Floor(stats.getLuk() / 3));
 		foreach (Effect effect in effects) {
 			MDmg = effect.affectMagicalDamage (MDmg);
 		}
