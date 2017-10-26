@@ -24,8 +24,15 @@ public class StateCalculator : Calculator {
 		sp = Mathf.Max (0, sp - cost);
 	}
 
+	public void affectStateValues(){
+		foreach (Effect effect in effects) {
+			hp = effect.affectHp (hp);
+			sp = effect.affectSp (sp);
+		}
+	}
+
 	public override void update(){
-		// usar los efectos para aplicar incremento o decremento
+		affectStateValues ();
 		updateEffects ();	
 	}
 }

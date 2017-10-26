@@ -25,4 +25,24 @@ public abstract class Effect : MonoBehaviour {
 	public float affectMagicalDefense(float def){
 		return def;
 	}
+
+	public float affectAttackSpeed(float attackS){
+		return attackS;
+	}
+
+	public float affectMagicalDamage(float dmg){
+		return dmg;
+	}
+
+	public float affectPhysicalDamage(float dmg){
+		return dmg;
+	}
+
+	public float affectHp(float hp){
+		return hp;
+	}
+
+	public float affectSp(float sp){
+		return sp;
+	}
 }

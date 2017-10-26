@@ -17,7 +17,7 @@ public class DefensiveCalculator : Calculator {
 	}
 
 	public float reducePhysicalDamage(float damage){
-		float Def = (stats.getVit / 2) + Mathf.Max ((stats.getVit () * 0.3), (stats.getVit () * stats.getVit () / 150) - 1);
+		float Def = (stats.getVit() / 2) + Mathf.Max ( (stats.getVit() * 0.3f), (stats.getVit () * stats.getVit () / 150f) - 1);
 		foreach (Effect effect in effects) {
 			Def = effect.affectPhysicalDefense (Def);
 		}

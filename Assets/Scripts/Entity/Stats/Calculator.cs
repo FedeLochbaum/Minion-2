@@ -26,7 +26,9 @@ public abstract class Calculator : MonoBehaviour {
 		effects.Remove (effect);
 	}
 
-
 	// se llama a update cuando termina el turno
 	public abstract void update ();
+
+	// quiero poder hacer esto.
+	// effects.Select (affectPhysicalDamage).fold (f => Dmg = f (Dmg), Dmg);  
 }
