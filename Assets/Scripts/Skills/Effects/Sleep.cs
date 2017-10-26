@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Sleep : Curse {
 
-	public Sleep(int sleepTurns) : base(sleepTurns){
+	public Sleep() : base(2){
 	}
 		
 }

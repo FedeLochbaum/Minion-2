@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Heal : Blessing {
 
-	public Heal(int powerHeal) : base(1) {
+	private float powerHeal;
+
+	public Heal(float powerHeal) : base(1) {
+		this.powerHeal = powerHeal;
+	}
+
+	public new float affectHp(float hp){
+		return hp + powerHeal;
 	}
 }

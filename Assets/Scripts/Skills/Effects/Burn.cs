@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class Burn : Curse {
 
-	public Burn(int burnTurns) : base(burnTurns) {
+	private float fireDamage;
+
+	public Burn(float fireDamage) : base(5) {
+		this.fireDamage = fireDamage;
 	}
 
+	public float affectHp(float hp){
+		return hp - fireDamage;
+	}
 }
