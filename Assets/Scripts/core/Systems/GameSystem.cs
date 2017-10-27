@@ -19,7 +19,6 @@ public class GameSystem : MonoBehaviour {
 	}
 		
 	public void load(){
-		// Es llamado cuando el player da un paso.
 		if(Random.Range(1, 100) <= battleProbability){
 			generateBattle ();
 		}
