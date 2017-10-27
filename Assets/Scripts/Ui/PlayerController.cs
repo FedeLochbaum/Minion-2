@@ -8,16 +8,18 @@ public class PlayerController : MonoBehaviour {
 	public float speed;
 	private Animator anim;
 	public GameSystem gameSystem;
+	private bool isRight;
 
 	// Use this for initialization
 	void Start () {
+		isRight = false;
 		anim = GetComponent<Animator> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		move();
-
+		flip ();
 	}
 
 	private void move(){
@@ -33,13 +35,23 @@ public class PlayerController : MonoBehaviour {
 	private void moveAnimation(){
 		string animS = (Input.GetKey (KeyCode.RightArrow)) ? "Right" 
 			: (Input.GetKey (KeyCode.LeftArrow)) ? "Left" 
-			: (Input.GetKey (KeyCode.UpArrow)) ? "Up"
-			: "Down";
+			: (Input.GetKey (KeyCode.UpArrow)) ? "Top"
+			: (Input.GetKey(KeyCode.DownArrow)) ? "Down" : "Idle";
 
 		anim.SetTrigger (animS);
 	}
 
 	private void idleAnimation(){
 		anim.SetTrigger ("Idle");
+	}
+
+	private void flip(){
+		float horizontal = Input.GetAxis ("Horizontal");
+		if (horizontal > 0 && !isRight || horizontal < 0 && isRight) {
+			isRight = !isRight;
+			Vector3 scale = transform.localScale;
+			scale.x *= -1;
+			transform.localScale = scale;
+		}
 	}
 }
