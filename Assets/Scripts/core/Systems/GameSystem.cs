@@ -8,14 +8,16 @@ public class GameSystem : MonoBehaviour {
 	private ActionSystem actionSystem;
 	private List<Entity> teamPlayer;
 	private List<BattleStrategy> strategies;
-	private float battleProbability = 40f;
-
+	public float battleProbability = 10f;
+	private SoundSystem soundSystem;
 
 	void Start () {
 		battleSystem = new BattleSystem (this);
 		actionSystem = new ActionSystem (this);
 		teamPlayer = new List<Entity>(GameObject.FindObjectsOfType<Player> ());
 		strategies = new List<BattleStrategy>{ new EasyStrategy (), new NormalStrategy () };
+		soundSystem = gameObject.GetComponent<SoundSystem> ();
+		soundSystem.playAmbientSound();
 	}
 		
 	public void load(){
@@ -23,10 +25,7 @@ public class GameSystem : MonoBehaviour {
 			generateBattle ();
 		}
 	}
-
-	void Update () {
-	}
-
+		
 	public void finishTurnPlayer(){
 		battleSystem.nextPlayerTurn ();
 	}
@@ -37,11 +36,14 @@ public class GameSystem : MonoBehaviour {
 
 	public void finishBattle(){
 		// cuando llaman a run
+
+		soundSystem.finishBattle ();
 	}
 
 	public void generateBattle(){
 		generateEnemies (Random.Range(1, maximumAmountOfEnemies));
 		battleSystem.newBattle();
+		soundSystem.startBattle();
 	}
 
 	public void generateEnemies(int numberOfEnemies){
