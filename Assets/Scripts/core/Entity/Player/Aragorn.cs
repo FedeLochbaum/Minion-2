@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Aragorn : MonoBehaviour {
+public class Aragorn : Player {
 
-	// Use this for initialization
-	void Start () {
-		
+	public Aragorn() : base("Aragorn"){
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	void Start () {
+		Spell protect = new EffectSpell (stats, new Protect(), 30f);
+		magicSkills.Add (protect);
+
 	}
 }
