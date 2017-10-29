@@ -10,11 +10,11 @@ public class Protect : Blessing {
 		this.bonusDefense = defense;
 	}
 
-	public float affectPhysicalDefense(float def){
+	public new float affectPhysicalDefense(float def){
 		return def + bonusDefense;
 	}
 
-	public float affectMagicalDefense(float def){
+	public new float affectMagicalDefense(float def){
 		return def + bonusDefense;
 	}
 }
