@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Netero : MonoBehaviour {
+public class Netero : Player {
 
-	// Use this for initialization
-	void Start () {
-		
+	public Netero() : base("Netero"){
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	void Start () {
+		Spell palmOfBuddha = new OffensiveSpell (stats, 20f);
+		Spell nen = new EffectSpell (stats, new Attack(25f, 5), 10f);
+		magicSkills.Add (palmOfBuddha);
+		magicSkills.Add (nen);
+
+		special = new SpecialSkill (stats, 50f, new List<Spell> {new EffectSpell (stats, new OccultPower(), 0f) });
 	}
 }
