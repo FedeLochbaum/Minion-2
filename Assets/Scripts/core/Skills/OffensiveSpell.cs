@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class OffensiveSpell : Spell {
 	
-	public OffensiveSpell(Stats stats, float cost) : base(stats, cost) {
+	public OffensiveSpell(Stats stats, float cost, string nameSpell) : base(stats, cost, nameSpell) {
 	}
 
 	public override void apply(Entity entity){

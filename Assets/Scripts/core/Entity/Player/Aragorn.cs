@@ -8,7 +8,7 @@ public class Aragorn : Player {
 	}
 
 	void Start () {
-		Spell protect = new EffectSpell (stats, new Protect(15f), 30f);
+		Spell protect = new EffectSpell (stats, new Protect(15f), 30f, "protect");
 		magicSkills.Add (protect);
 	}
 }

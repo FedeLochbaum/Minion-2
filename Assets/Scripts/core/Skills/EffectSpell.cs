@@ -6,7 +6,7 @@ public class EffectSpell : Spell {
 
 	private Effect effect;
 
-	public EffectSpell(Stats stats, Effect effect, float cost): base(stats, cost){
+	public EffectSpell(Stats stats, Effect effect, float cost, string nameSpell): base(stats, cost, nameSpell){
 		this.effect = effect;
 	}
 

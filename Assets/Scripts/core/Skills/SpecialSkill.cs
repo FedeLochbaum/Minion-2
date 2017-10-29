@@ -6,7 +6,7 @@ public class SpecialSkill : Spell {
 
 	private List<Spell> spells;
 
-	public SpecialSkill(Stats stats, float cost, List<Spell> spells) : base(stats, cost){
+	public SpecialSkill(Stats stats, float cost, List<Spell> spells, string nameSpell) : base(stats, cost, nameSpell){
 		this.spells = spells;
 	}
 

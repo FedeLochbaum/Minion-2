@@ -10,7 +10,7 @@ public class Player : Entity {
 
 	public Player (string name) : base(name) {
 		magicSkills = new List<Spell> ();
-		special = new SpecialSkill (stats, 0f, new List<Spell>());
+		special = new SpecialSkill (stats, 0f, new List<Spell>(), "");
 	}
 
 	public override void selectAction(){
