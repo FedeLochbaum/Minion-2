@@ -6,7 +6,7 @@ public class Heal : Blessing {
 
 	private float powerHeal;
 
-	public Heal(float powerHeal) : base(1) {
+	public Heal(float powerHeal, int turns) : base(turns) {
 		this.powerHeal = powerHeal;
 	}
 

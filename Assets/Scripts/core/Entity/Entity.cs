@@ -4,10 +4,12 @@ using UnityEngine;
 
 public abstract class Entity : MonoBehaviour {
 
-	protected Stats stats; 
+	protected string entityName;
+	public Stats stats; 
 	protected ActionSystem actionSystem;
 
-	public Entity () {
+	public Entity (string name) {
+		entityName = name;
 		stats = new Stats ();
 		actionSystem = GameObject.FindObjectOfType<ActionSystem> ();
 	}

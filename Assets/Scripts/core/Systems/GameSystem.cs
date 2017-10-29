@@ -51,7 +51,7 @@ public class GameSystem : MonoBehaviour {
 		for(int i = 1; i <= numberOfEnemies; ++i){
 			// Es probable que cambie luego.
 			// Luego sera necesario ponerle un sprite y eso.
-			new Enemy(teamPlayer, strategyOfMonsters);
+			new Enemy("Enemy " + i,teamPlayer, strategyOfMonsters);
 		}
 	}
 }

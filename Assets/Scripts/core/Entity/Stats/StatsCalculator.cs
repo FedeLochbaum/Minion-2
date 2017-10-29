@@ -53,6 +53,10 @@ public class StatsCalculator {
 		stateCalculator.reduceSp (cost);
 	}
 
+	public float getSp(){
+		return stateCalculator.getSp ();
+	}
+
 	public void addEffect(Effect effect){
 		stateCalculator.addEffect (effect);
 		offensiveCalculator.addEffect(effect);

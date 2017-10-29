@@ -12,6 +12,10 @@ public class StateCalculator : Calculator {
 		sp = maxSp();
 	}
 
+	public float getSp(){
+		return sp;
+	}
+
 	public float maxHp(){
 		return Mathf.Floor( 35f * (1 + stats.getVit() * 0.01f));
 	}

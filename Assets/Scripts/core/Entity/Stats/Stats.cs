@@ -7,12 +7,13 @@ public class Stats : MonoBehaviour {
 	private StatsCalculator calculator;
 
 	// Stats principales
-	private float str;
-	private float agi;
-	private float vit;
-	private float inte;
-	private float dex;
-	private float luk;
+	// para ser modificados desde el editor.
+	public float str;
+	public float agi;
+	public float vit;
+	public float inte;
+	public float dex;
+	public float luk;
 
 
 	public Stats(){
@@ -68,6 +69,10 @@ public class Stats : MonoBehaviour {
 
 	public void removeEffect(Effect effect){
 		calculator.removeEffect (effect);
+	}
+
+	public float getSp(){
+		return calculator.getSp ();
 	}
 
 	// Getters

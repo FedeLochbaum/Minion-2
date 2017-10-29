@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Player : Entity {
 
-	private List<Spell> magicSkill;
-	private SpecialSkill special;
+	protected List<Spell> magicSkills;
+	protected SpecialSkill special;
 	// Falta Inventario con Items..
 
-	public Player () : base() {
-		magicSkill = new List<Spell> ();
-		special = new SpecialSkill (stats, 0f);
+	public Player (string name) : base(name) {
+		magicSkills = new List<Spell> ();
+		special = new SpecialSkill (stats, 0f, new List<Spell>());
 	}
 
 	public override void selectAction(){
@@ -27,7 +27,7 @@ public class Player : Entity {
 	}
 
 	public void selectMagicalAction(int spellPosition, List<Entity> affectedEntities){
-		applyAction (new MagicalAction(this, affectedEntities, magicSkill[spellPosition]));
+		applyAction (new MagicalAction(this, affectedEntities, magicSkills[spellPosition]));
 	}
 		
 	public void selectSpecialAction(List<Entity> affectedEntities){

@@ -11,7 +11,9 @@ public class EffectSpell : Spell {
 	}
 
 	public override void apply(Entity entity){
-		playerStats.reduceSp (cost);
-		entity.getStats ().applyEffect (effect);
+		if (playerStats.getSp () >= cost) {
+			playerStats.reduceSp (cost);
+			entity.getStats ().applyEffect (effect);
+		}
 	}
 }

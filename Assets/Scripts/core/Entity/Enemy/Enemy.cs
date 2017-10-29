@@ -7,7 +7,7 @@ public class Enemy : Entity {
 	private List<Entity> battlePlayers;
 	private BattleStrategy strategy;
 
-	public Enemy (List<Entity> battlePlayers, BattleStrategy strategy) : base() {
+	public Enemy (string name, List<Entity> battlePlayers, BattleStrategy strategy) : base(name) {
 		this.battlePlayers = battlePlayers;
 		this.strategy = strategy;
 	}
