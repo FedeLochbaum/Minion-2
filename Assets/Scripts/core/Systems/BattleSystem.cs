@@ -1,18 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
 public class BattleSystem : MonoBehaviour {
 
 	private TurnSystem turnSystem;
-
-	private List<Entity> actualEntities;
+	private BattlePanel battlePanel;
+	private List<Entity> playerEntities;
+	private List<Entity> enemyEntities;
 
 	private bool isCombat;
 	private GameSystem gameSystem;
 
-	public BattleSystem(GameSystem gameSystem){
+	public BattleSystem(GameSystem gameSystem, Canvas canvas){
 		this.gameSystem = gameSystem;
-		turnSystem = new TurnSystem ();
+		battlePanel = canvas.GetComponent<BattlePanel>();
+		turnSystem = new TurnSystem (battlePanel);
+		canvas.enabled = false;
 		isCombat = false;
 	}
 
@@ -27,31 +31,41 @@ public class BattleSystem : MonoBehaviour {
 	}
 
 	public void checkIfAnyEntityDie(){
-		foreach (Entity entity in actualEntities) {
+		foreach (Entity entity in playerEntities) {
 			if (entity.isDie ()) {
-				actualEntities.Remove (entity);
+				playerEntities.Remove (entity);
+				turnSystem.removeEntity (entity);
+			}
+		}
+
+		foreach (Entity entity in enemyEntities) {
+			if (entity.isDie ()) {
+				enemyEntities.Remove (entity);
 				turnSystem.removeEntity (entity);
 			}
 		}
 	}
 
 	public void checkIfWinPlayer(){
-		// el filter podria cambiar
-		List<Entity> enemyEntities = actualEntities.FindAll (entity => entity.tag == "enemy");
 		if(enemyEntities.Count == 0)
 			win ();
 	}
 
 	public void checkIfDiePlayer(){
-		// el filter podria cambiar
-		List<Entity> playerEntities = actualEntities.FindAll (entity => entity.tag == "player");
 		if(playerEntities.Count == 0)
 			gameOver ();
 	}
 
-	public void newBattle(){
-		actualEntities = new List<Entity>(GameObject.FindObjectsOfType<Entity>());
-		turnSystem.newCombat (actualEntities);
+	public void configCanvas ()
+	{
+		battlePanel.loadBattle (playerEntities, enemyEntities);
+	}
+
+	public void newBattle(List<Entity> players,List<Entity> enemies) {
+		playerEntities = players;
+		enemyEntities = enemies;
+		configCanvas ();
+		turnSystem.newCombat ( new List<Entity>(GameObject.FindObjectsOfType<Entity>()));
 		isCombat = true;
 	}
 
@@ -69,9 +83,11 @@ public class BattleSystem : MonoBehaviour {
 
 	public void gameOver(){
 		gameSystem.gameOver ();
+		battlePanel.gameOver();
 	}
 
 	public void win(){
 		gameSystem.win ();
+		battlePanel.win();
 	}
 }

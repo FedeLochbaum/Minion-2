@@ -75,6 +75,10 @@ public class Stats : MonoBehaviour {
 		return calculator.getSp ();
 	}
 
+	public float getHp(){
+		return calculator.getHp ();
+	}
+
 	// Getters
 	public float getStr(){
 		return str;

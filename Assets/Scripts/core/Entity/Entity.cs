@@ -14,6 +14,10 @@ public abstract class Entity : MonoBehaviour {
 		actionSystem = GameObject.FindObjectOfType<ActionSystem> ();
 	}
 
+	public string getName(){
+		return entityName;
+	}
+
 	public bool isDie (){
 		return stats.isDie ();
 	}

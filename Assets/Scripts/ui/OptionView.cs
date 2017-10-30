@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BattlePanel : MonoBehaviour {
+public class OptionView : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -11,6 +11,10 @@ public class BattlePanel : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		
+	}
+
+	public void load(List<Entity> players){
 		
 	}
 }
