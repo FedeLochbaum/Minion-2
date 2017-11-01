@@ -15,6 +15,8 @@ public class Stats : MonoBehaviour {
 	public float dex;
 	public float luk;
 
+	public Level level;
+
 
 	public Stats(){
 		str = 25f;
@@ -24,11 +26,11 @@ public class Stats : MonoBehaviour {
 		dex  = 25f;
 		luk  = 25f;
 		calculator = new StatsCalculator (this);
+		level = new Level (this);
 	}
 
-	public float level(){
-		// por ahora asi. Cuando implemente el Level se usara.
-		return 1f;
+	public Level getLevel(){
+		return level;
 	}
 
 	public PhysicalDamage getPhysicalDamage (){
@@ -128,5 +130,16 @@ public class Stats : MonoBehaviour {
 
 	public void setInt(float inte){
 		this.inte = inte;
+	}
+
+	public void levelUp(){
+		setAgi (getAgi() + (level.getLevel() / 2));
+		setDex (getDex() + (level.getLevel() / 1.5f));
+		setInt (getInt() + (level.getLevel() / 1.2f));
+		setLuk (getLuk() + (level.getLevel() / 1.9f));
+		setStr (getStr() + (level.getLevel() / 1.1f));
+		setVit (getVit() + (level.getLevel() / 1.3f));
+
+		calculator.levelUp ();
 	}
 }

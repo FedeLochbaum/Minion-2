@@ -79,4 +79,10 @@ public class StatsCalculator {
 		defensiveCalculator.update();
 	}
 
+	public void levelUp(){
+		defensiveCalculator.levelUp ();
+		offensiveCalculator.levelUp ();
+		stateCalculator.levelUp ();
+	}
+
 }

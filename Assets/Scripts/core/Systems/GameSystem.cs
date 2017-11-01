@@ -10,12 +10,16 @@ public class GameSystem : MonoBehaviour {
 	private int maximumAmountOfEnemies = 4;
 	private BattleSystem battleSystem;
 	private ActionSystem actionSystem;
-	private List<Entity> teamPlayer;
 	private List<BattleStrategy> strategies;
 	public float battleProbability = 10f;
 	private SoundSystem soundSystem;
+	private LevelingSystem levelingSystem;
+
+	private List<Entity> teamPlayer;
+	private List<Entity> teamEnemy;
 
 	void Start () {
+		levelingSystem = new LevelingSystem ();
 		battleSystem = new BattleSystem (this, battleCanvas);
 		actionSystem = new ActionSystem (this);
 		//teamPlayer = new List<Entity>(GameObject.FindObjectsOfType<Player> ());
@@ -23,6 +27,7 @@ public class GameSystem : MonoBehaviour {
 		strategies = new List<BattleStrategy>{ new EasyStrategy (), new NormalStrategy () };
 		soundSystem = gameObject.GetComponent<SoundSystem> ();
 		soundSystem.playAmbientSound();
+
 	}
 		
 	public void load(){
@@ -37,17 +42,19 @@ public class GameSystem : MonoBehaviour {
 
 	public void gameOver(){}
 
-	public void win(){}
+	public void win(){
+		levelingSystem.gainExperience (teamPlayer, teamEnemy);
+	}
 
 	public void finishBattle(){
 		// cuando llaman a run
-
 		soundSystem.finishBattle ();
 	}
 
 	public void generateBattle(){
-		List<Entity> enemies = generateEnemies (Random.Range(1, maximumAmountOfEnemies));
-		battleSystem.newBattle(teamPlayer, enemies);
+		teamEnemy.Clear ();
+		teamEnemy = generateEnemies (Random.Range(1, maximumAmountOfEnemies));
+		battleSystem.newBattle(teamPlayer, teamEnemy);
 		soundSystem.startBattle();
 	}
 

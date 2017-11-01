@@ -11,7 +11,7 @@ public class StateCalculator : Calculator {
 		hp = maxHp();	
 		sp = maxSp();
 	}
-
+		
 	public float getSp(){
 		return sp;
 	}
@@ -45,6 +45,11 @@ public class StateCalculator : Calculator {
 			hp = effect.affectHp (hp);
 			sp = effect.affectSp (sp);
 		}
+	}
+
+	public new void levelUp(){
+		hp = maxHp();	
+		sp = maxSp();
 	}
 
 	public void hpRecovery(){

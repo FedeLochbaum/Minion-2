@@ -8,7 +8,7 @@ public class DefensiveCalculator : Calculator {
 	}
 
 	public float reduceMagicalDamage(float damage){
-		float MDef = (stats.getInt () + stats.getVit () / 5 + stats.getDex () / 5 + stats.level () / 4);
+		float MDef = (stats.getInt () + stats.getVit () / 5 + stats.getDex () / 5 + stats.getLevel().getLevel() / 4);
 		foreach (Effect effect in effects) {
 			MDef = effect.affectMagicalDefense (MDef);
 		}
@@ -35,7 +35,7 @@ public class DefensiveCalculator : Calculator {
 	}
 
 	public float flee(){
-		return (stats.level() + stats.getAgi() + stats.getLuk() / 5f  * (1f - ((Random.Range(1f,4f) - 2f) * 0.1f)));
+		return (stats.getLevel().getLevel() + stats.getAgi() + stats.getLuk() / 5f  * (1f - ((Random.Range(1f,4f) - 2f) * 0.1f)));
 	}
 
 	public override void update(){
