@@ -63,7 +63,8 @@ public class GameSystem : MonoBehaviour {
 		for(int i = 1; i <= numberOfEnemies; ++i){
 			// Es probable que cambie luego.
 			// Luego sera necesario ponerle un sprite.
-			enemies.Add(new Enemy("Enemy " + i,teamPlayer, strategyOfMonsters));
+			Entity enemy = new Enemy("Enemy " + i,teamPlayer, strategyOfMonsters);
+			enemies.Add(enemy);
 		}
 		return enemies;
 	}

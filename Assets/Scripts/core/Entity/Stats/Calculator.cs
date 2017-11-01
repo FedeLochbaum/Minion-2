@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Calculator : MonoBehaviour {
+public abstract class Calculator {
 
 	protected List<Effect> effects;
 	protected Stats stats;

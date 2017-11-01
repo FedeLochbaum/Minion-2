@@ -23,7 +23,6 @@ public class TurnSystem : MonoBehaviour {
 	}
 
 	public List<Entity> sortEntities(List<Entity> entities){
-		// Si.. no entiendo como pueden conformarse con esto.
 		entities.Sort ((new EntityCompare ()));
 		entities.Reverse ();
 		return entities;

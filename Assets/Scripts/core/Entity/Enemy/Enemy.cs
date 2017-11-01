@@ -16,7 +16,7 @@ public class Enemy : Entity {
 		applyAction (strategy.getBestAction(this, battlePlayers));
 	}
 
-	public float getExperience(){
+	public new float getExperience(){
 		return strategy.getExperience ();
 	}
 }

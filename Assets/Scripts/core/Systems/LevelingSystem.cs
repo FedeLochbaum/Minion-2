@@ -13,11 +13,11 @@ public class LevelingSystem {
 		}
 	}
 
-	public float getExperienceForLevel(Player player, Enemy enemy){
+	public float getExperienceForLevel(Entity player, Entity enemy){
 		return enemy.getExperience() * getPercentageOfAgain(player, enemy) * 1.5f;
 	}
 
-	public float getPercentageOfAgain(Player player, Enemy enemy){
+	public float getPercentageOfAgain(Entity player, Entity enemy){
 		float playerLvl = player.getStats ().getLevel ().getLevel ();
 		float enemyLvl = enemy.getStats ().getLevel ().getLevel ();
 		float gap = enemyLvl - playerLvl;
@@ -25,22 +25,6 @@ public class LevelingSystem {
 	}
 
 	public float calculatePercetageByGap(float gap){
-		switch (gap) {
-		case 3:
-			return 1.05f;
-			break;
-		case 4:
-			return 1.1f;
-			break;
-		case 5:
-			return 1.15f;
-			break;
-		case 6:
-			return 1.2f;
-			break;
-		default:
-			return 1f;
-			break;
-		}
+		return gap * 0.5f;
 	}
 }

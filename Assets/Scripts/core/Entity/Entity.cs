@@ -45,4 +45,8 @@ public abstract class Entity : MonoBehaviour {
 		return stats;
 	}
 
+	public float getExperience(){
+		return 1f;
+	}
+
 }

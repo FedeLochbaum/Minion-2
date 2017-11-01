@@ -67,6 +67,7 @@ public class BattleSystem : MonoBehaviour {
 		configCanvas ();
 		turnSystem.newCombat ( new List<Entity>(GameObject.FindObjectsOfType<Entity>()));
 		isCombat = true;
+		print (players.ToArray().Length);
 	}
 
 	public void finishTurn(){
