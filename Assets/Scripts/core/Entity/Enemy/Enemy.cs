@@ -15,4 +15,8 @@ public class Enemy : Entity {
 	public override void selectAction(){
 		applyAction (strategy.getBestAction(this, battlePlayers));
 	}
+
+	public float getExperience(){
+		return strategy.getExperience ();
+	}
 }

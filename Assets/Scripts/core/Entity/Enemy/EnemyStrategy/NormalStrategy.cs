@@ -13,4 +13,8 @@ public class NormalStrategy : BattleStrategy {
 		// Falta implementar.
 		return null;
 	}
+
+	public override float getExperience(){
+		return 2500f;
+	}
 }

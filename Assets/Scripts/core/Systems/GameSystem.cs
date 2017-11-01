@@ -47,12 +47,11 @@ public class GameSystem : MonoBehaviour {
 	}
 
 	public void finishBattle(){
-		// cuando llaman a run
+		// cuando llaman a Flee
 		soundSystem.finishBattle ();
 	}
 
 	public void generateBattle(){
-		teamEnemy.Clear ();
 		teamEnemy = generateEnemies (Random.Range(1, maximumAmountOfEnemies));
 		battleSystem.newBattle(teamPlayer, teamEnemy);
 		soundSystem.startBattle();

@@ -38,5 +38,6 @@ public class Level  {
 		needExperienceForLevelUp *= 1.7f;
 		level++;
 		stats.levelUp ();
+		checkLevelUp ();
 	}
 }
