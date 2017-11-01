@@ -47,7 +47,6 @@ public class GameSystem : MonoBehaviour {
 	}
 
 	public void finishBattle(){
-		// cuando llaman a Flee
 		soundSystem.finishBattle ();
 	}
 
@@ -63,6 +62,7 @@ public class GameSystem : MonoBehaviour {
 		for(int i = 1; i <= numberOfEnemies; ++i){
 			// Es probable que cambie luego.
 			// Luego sera necesario ponerle un sprite.
+			// Darle tambien un nivel a los enemies y que a partir de esto tambien les cambie los stats.
 			Entity enemy = new Enemy("Enemy " + i,teamPlayer, strategyOfMonsters);
 			enemies.Add(enemy);
 		}

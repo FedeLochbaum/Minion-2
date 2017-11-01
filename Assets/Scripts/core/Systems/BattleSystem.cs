@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using System.Linq;
 
 public class BattleSystem : MonoBehaviour {
 
@@ -21,6 +22,7 @@ public class BattleSystem : MonoBehaviour {
 	}
 
 	void Update () {
+		
 		if (isCombat) {
 			checkIfAnyEntityDie ();
 
@@ -65,9 +67,8 @@ public class BattleSystem : MonoBehaviour {
 		playerEntities = players;
 		enemyEntities = enemies;
 		configCanvas ();
-		turnSystem.newCombat ( new List<Entity>(GameObject.FindObjectsOfType<Entity>()));
+		turnSystem.newCombat (new List<Entity>().Concat(players).Concat(enemies).ToList());
 		isCombat = true;
-		print (players.ToArray().Length);
 	}
 
 	public void finishTurn(){
