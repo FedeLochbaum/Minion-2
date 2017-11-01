@@ -18,7 +18,6 @@ public class TurnSystem : MonoBehaviour {
 
 	public void nextTurn(){
 		Entity first = entities.Dequeue ();
-		battlePanel.nextTurn (first);
 		first.myTurn ();
 		entities.Enqueue (first);
 		print (first);

@@ -71,16 +71,12 @@ public class BattleSystem : MonoBehaviour {
 		isCombat = true;
 	}
 
-	public void finishTurn(){
+	public void nextPlayerTurn(){
 		turnSystem.nextTurn ();
 	}
 
 	public void restartSystem(){
 
-	}
-
-	public void nextPlayerTurn(){
-		turnSystem.nextTurn ();
 	}
 
 	public void gameOver(){

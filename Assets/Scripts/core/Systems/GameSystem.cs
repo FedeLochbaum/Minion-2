@@ -24,7 +24,7 @@ public class GameSystem : MonoBehaviour {
 		actionSystem = new ActionSystem (this);
 		//teamPlayer = new List<Entity>(GameObject.FindObjectsOfType<Player> ());
 		teamPlayer = new List<Entity>{new Aragorn(), new Kvothe(), new Netero(), new Tyrande()};
-		strategies = new List<BattleStrategy>{ new EasyStrategy (), new NormalStrategy () };
+		strategies = new List<BattleStrategy>{ new EasyStrategy ()};
 		soundSystem = gameObject.GetComponent<SoundSystem> ();
 		soundSystem.playAmbientSound();
 
