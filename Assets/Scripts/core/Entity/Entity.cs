@@ -29,13 +29,12 @@ public abstract class Entity : MonoBehaviour {
 		return stats.actionSpeed ();
 	}
 
-	public void myTurn(){
-		selectAction ();
+	public abstract void myTurn ();
+
+	public void finishTurn(){
 		stats.updateTurn ();
 		gameSystem.finishTurnPlayer ();
 	}
-
-	public void selectAction (){}
 
 	public void applyAction (Action action){		
 		actionSystem.ApplyAction (action);

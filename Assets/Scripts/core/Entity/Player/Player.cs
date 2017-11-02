@@ -15,13 +15,8 @@ public class Player : Entity {
 		battlePanel = gameSystem.GetComponent<BattlePanel>();
 	}
 
-	public new void myTurn(){
+	public override void myTurn(){
 		battlePanel.selectAction(this);
-	}
-
-	void finishTurn () {
-		stats.updateTurn ();
-		gameSystem.finishTurnPlayer ();
 	}
 
 	public void selectPhysicalAttackAction(Entity enemy){

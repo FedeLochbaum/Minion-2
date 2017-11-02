@@ -11,7 +11,7 @@ public class GameSystem : MonoBehaviour {
 	private BattleSystem battleSystem;
 	private ActionSystem actionSystem;
 	private List<BattleStrategy> strategies;
-	public int stepsForBattle = 5;
+	public int stepsForBattle = 10;
 	private int count;
 	private SoundSystem soundSystem;
 	private LevelingSystem levelingSystem;
@@ -23,19 +23,24 @@ public class GameSystem : MonoBehaviour {
 		levelingSystem = new LevelingSystem ();
 		battleSystem = new BattleSystem (this, battleCanvas);
 		actionSystem = new ActionSystem (this);
+
 		//teamPlayer = new List<Entity>(GameObject.FindObjectsOfType<Player> ());
-		teamPlayer = new List<Entity>{new Aragorn(), new Kvothe(), new Netero(), new Tyrande()};
+		teamPlayer = new List<Entity>{new Aragorn(), new Kvothe(), new Netero(), new Tyrande() };
+
 		strategies = new List<BattleStrategy>{ new EasyStrategy ()};
 		soundSystem = gameObject.GetComponent<SoundSystem> ();
 		soundSystem.playAmbientSound();
 		count = stepsForBattle;
 	}
 		
-	public void load(){
-		if (count <= 0) {
-			generateBattle ();
-			count = stepsForBattle;
-		} else count--;
+	public void chanceOfBattle() {
+		if (!battleSystem.getIsBattle ()) {
+			if (count <= 0) {
+				print ("Generar Batalla");
+				generateBattle ();
+				count = stepsForBattle;
+			} else count--;
+		}
 	}
 		
 	public void finishTurnPlayer(){

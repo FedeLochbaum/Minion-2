@@ -26,8 +26,8 @@ public class PlayerController : MonoBehaviour {
 		if (Input.GetAxis ("Horizontal") != 0 || Input.GetAxis ("Vertical") != 0) {
 			var movement = new Vector3 (Input.GetAxis ("Horizontal"), Input.GetAxis ("Vertical"), 0);
 			transform.position += movement * speed * Time.deltaTime;
-			gameSystem.load ();
 			moveAnimation ();
+			gameSystem.chanceOfBattle ();
 		} else
 			idleAnimation ();
 	}

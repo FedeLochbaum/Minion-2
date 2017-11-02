@@ -4,16 +4,15 @@ using System.Collections.Generic;
 public class TurnSystem : MonoBehaviour {
 
 	private BattlePanel battlePanel;
+	private Queue<Entity> entities;
 
 	public TurnSystem(BattlePanel battlePanel) {
 		this.battlePanel = battlePanel;
 	}
 
-	Queue<Entity> entities;
 	// Aun falta hacer el pasaje de turnos mas inteligente. Deberia ser algo asi como una carrrera por el turno.
 	public void newCombat(List<Entity> entitiesArray){
 		entities = new Queue<Entity>(sortEntities (entitiesArray));
-		nextTurn ();
 	}
 
 	public void nextTurn(){

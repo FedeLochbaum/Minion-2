@@ -10,7 +10,7 @@ public class BattleSystem : MonoBehaviour {
 	private List<Entity> playerEntities;
 	private List<Entity> enemyEntities;
 
-	private bool isCombat;
+	private bool isBattle;
 	private GameSystem gameSystem;
 
 	public BattleSystem(GameSystem gameSystem, Canvas canvas){
@@ -18,12 +18,12 @@ public class BattleSystem : MonoBehaviour {
 		battlePanel = canvas.GetComponent<BattlePanel>();
 		turnSystem = new TurnSystem (battlePanel);
 		canvas.enabled = false;
-		isCombat = false;
+		isBattle = false;
 	}
 
 	void Update () {
 		
-		if (isCombat) {
+		if (isBattle) {
 			checkIfAnyEntityDie ();
 
 			checkIfWinPlayer ();
@@ -68,7 +68,9 @@ public class BattleSystem : MonoBehaviour {
 		enemyEntities = enemies;
 		configCanvas ();
 		turnSystem.newCombat (new List<Entity>().Concat(players).Concat(enemies).ToList());
-		isCombat = true;
+		isBattle = true;
+
+		nextPlayerTurn ();
 	}
 
 	public void nextPlayerTurn(){
@@ -87,5 +89,9 @@ public class BattleSystem : MonoBehaviour {
 	public void win(){
 		gameSystem.win ();
 		battlePanel.win();
+	}
+
+	public bool getIsBattle(){
+		return isBattle;
 	}
 }

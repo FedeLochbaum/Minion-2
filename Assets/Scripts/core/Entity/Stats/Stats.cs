@@ -6,8 +6,6 @@ public class Stats : MonoBehaviour {
 
 	private StatsCalculator calculator;
 
-	// Stats principales
-	// para ser modificados desde el editor.
 	public float str;
 	public float agi;
 	public float vit;
@@ -18,7 +16,7 @@ public class Stats : MonoBehaviour {
 	public Level level;
 
 
-	public Stats(){
+	public Stats() {
 		str = 25f;
 		agi = 25f;
 		vit  = 25f;
