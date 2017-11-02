@@ -6,20 +6,27 @@ public class Player : Entity {
 
 	protected List<Spell> magicSkills;
 	protected SpecialSkill special;
+	private BattlePanel battlePanel; 
 	// Falta Inventario con Items..
 
 	public Player (string name) : base(name) {
 		magicSkills = new List<Spell> ();
 		special = new SpecialSkill (stats, 0f, new List<Spell>(), "");
+		battlePanel = gameSystem.GetComponent<BattlePanel>();
 	}
 
-	public override void selectAction(){
-		// Desplegar UI de seleccion.
-		// La UI llamara a cualquiera de los metodos de abajo.
+	public new void myTurn(){
+		battlePanel.selectAction(this);
+	}
+
+	void finishTurn () {
+		stats.updateTurn ();
+		gameSystem.finishTurnPlayer ();
 	}
 
 	public void selectPhysicalAttackAction(Entity enemy){
 		applyAction (new PhysicalAttackAction (this, new List<Entity>{enemy}));
+		finishTurn ();
 	}
 
 	public void selectRunAction(){
@@ -28,14 +35,17 @@ public class Player : Entity {
 
 	public void selectMagicalAction(int spellPosition, List<Entity> affectedEntities){
 		applyAction (new MagicalAction(this, affectedEntities, magicSkills[spellPosition]));
+		finishTurn ();
 	}
 		
 	public void selectSpecialAction(List<Entity> affectedEntities){
 		applyAction (new MagicalAction (this, affectedEntities, special));
+		finishTurn ();
 	}
 		
 	public void selectUseItem(Item item, List<Entity> affectedEntities){
 		applyAction (new UseItemAction (this, affectedEntities, item));
+		finishTurn ();
 	}
 
 }

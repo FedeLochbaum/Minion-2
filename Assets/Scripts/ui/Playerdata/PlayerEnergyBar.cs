@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerEnergyBar : MonoBehaviour {
 
-	public void load(Entity entity){
+	public void load(Player entity){
 		gameObject.GetComponent<GUIText>().text = entity.getStats().getSp().ToString();
 		gameObject.GetComponent<Image>().fillAmount = entity.getStats().getSp() / 100f;
 	}

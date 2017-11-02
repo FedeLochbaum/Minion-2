@@ -12,8 +12,8 @@ public abstract class Entity : MonoBehaviour {
 	public Entity (string name) {
 		entityName = name;
 		stats = new Stats ();
-		actionSystem = GameObject.FindObjectOfType<ActionSystem> ();
 		gameSystem = GameObject.FindObjectOfType<GameSystem> ();
+		actionSystem = gameSystem.getActionSystem();
 	}
 
 	public string getName(){
@@ -35,9 +35,9 @@ public abstract class Entity : MonoBehaviour {
 		gameSystem.finishTurnPlayer ();
 	}
 
-	public abstract void selectAction ();
+	public void selectAction (){}
 
-	public void applyAction (Action action){
+	public void applyAction (Action action){		
 		actionSystem.ApplyAction (action);
 	}
 

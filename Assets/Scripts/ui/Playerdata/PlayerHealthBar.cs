@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerHealthBar : MonoBehaviour {
 
-	public void load(Entity entity){
+	public void load(Player entity){
 		gameObject.GetComponent<GUIText>().text = entity.getStats().getHp().ToString();
 		gameObject.GetComponent<Image>().fillAmount = entity.getStats().getHp() / 100f;
 	}

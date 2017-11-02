@@ -12,7 +12,7 @@ public class Enemy : Entity {
 		this.strategy = strategy;
 	}
 
-	public override void selectAction(){
+	public new void selectAction(){
 		applyAction (strategy.getBestAction(this, battlePlayers));
 	}
 

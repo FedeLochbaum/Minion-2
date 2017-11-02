@@ -12,7 +12,7 @@ public class PlayerTurn : MonoBehaviour {
 		playerEnergyBar = gameObject.GetComponent<PlayerEnergyBar> ();
 	}
 
-	public void next(Entity entity){
+	public void turnOf(Player entity){
 		playerHealthBar.load (entity);
 		playerEnergyBar.load (entity);
 	}

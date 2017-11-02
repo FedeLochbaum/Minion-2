@@ -20,12 +20,25 @@ public class BattlePanel : MonoBehaviour {
 		// faltaria cargar el responsable de mostrar los enemigos y los players
 	}
 
-	public void nextTurn(Entity entity){
-		playerTurn.next (entity);
+	public void finishBattle(){
+		gameObject.GetComponent<Canvas> ().enabled = false;
 	}
 
 	public void gameOver(){
 	}
 
 	public void win(){}
+
+	public void selectAction(Player player) {
+		print ("Player : " + player.getName ());
+		playerTurn.turnOf (player);
+		// En algun momento cuando el usuario seleccione su accion, debera llamar a algun SelectAction del Player
+	}
+
+	public void Wait(float seconds){
+		StartCoroutine(wait(seconds));
+	}
+	IEnumerator wait(float time){
+		yield return new WaitForSeconds(time);
+	}
 }
