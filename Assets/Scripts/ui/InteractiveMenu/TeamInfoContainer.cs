@@ -10,10 +10,8 @@ public class TeamInfoContainer : MonoBehaviour {
 
 		for( int i = 0; i < players.Count; ++i ) {
 			GameObject playerInfo = playersInfo [i];
-			print (playerInfo);
+			playerInfo.GetComponent<Text>().text = players[i].getName().ToString();
 			//playerInfo.GetComponent<Image>().fillAmount = players[i].getStats().getHp() / 100f;
-			//playerInfo.GetComponent<Text>().text = players[i].getStats().getHp().ToString();
-
 		}
 	}
 
@@ -22,7 +20,7 @@ public class TeamInfoContainer : MonoBehaviour {
 
 		for( int i = 0; i < enemies.Count; ++i ) {
 			GameObject enemyInfo = playersInfo [i];
-			enemyInfo.GetComponent<Text>().text = enemies[i].getStats().getHp().ToString();
+			enemyInfo.GetComponent<Text>().text = enemies[i].getName().ToString();
 			enemyInfo.GetComponent<Image>().fillAmount = enemies[i].getStats().getHp() / 100f;
 		}
 	}
