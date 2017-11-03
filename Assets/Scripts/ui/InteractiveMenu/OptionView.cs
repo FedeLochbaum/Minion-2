@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class OptionView : MonoBehaviour {
 
-	// Use this for initialization
+	public GameObject teamInfo;
+
+	private TeamInfoContainer info;
+	private List<Entity> players, enemies;
+
 	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+		info = teamInfo.GetComponent<TeamInfoContainer> ();
 	}
 
-	public void load(List<Entity> players){
-		
+	public void load(List<Entity> players, List<Entity> enemies) {
+		this.players = players;
+		this.enemies = enemies;
+
+		info.loadPlayers (players);
+		info.loadEnemies (enemies);
 	}
 }

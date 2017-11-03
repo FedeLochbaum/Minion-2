@@ -11,11 +11,8 @@ public class GameSystem : MonoBehaviour {
 	private BattleSystem battleSystem;
 	private ActionSystem actionSystem;
 	private List<BattleStrategy> strategies;
-	public int stepsForBattle = 10;
-	private int count;
 	private SoundSystem soundSystem;
 	private LevelingSystem levelingSystem;
-
 	private List<Entity> teamPlayer;
 	private List<Entity> teamEnemy;
 
@@ -30,17 +27,6 @@ public class GameSystem : MonoBehaviour {
 		strategies = new List<BattleStrategy>{ new EasyStrategy ()};
 		soundSystem = gameObject.GetComponent<SoundSystem> ();
 		soundSystem.playAmbientSound();
-		count = stepsForBattle;
-	}
-		
-	public void chanceOfBattle() {
-		if (!battleSystem.getIsBattle ()) {
-			if (count <= 0) {
-				print ("Generar Batalla");
-				generateBattle ();
-				count = stepsForBattle;
-			} else count--;
-		}
 	}
 		
 	public void finishTurnPlayer(){
@@ -48,10 +34,12 @@ public class GameSystem : MonoBehaviour {
 	}
 
 	public void gameOver(){
+		battleSystem.GetComponent<BattlePanel> ().gameOver ();
 		finishBattle ();
 	}
 
 	public void win(){
+		battleSystem.GetComponent<BattlePanel> ().win();
 		levelingSystem.gainExperience (teamPlayer, teamEnemy);
 		finishBattle ();
 	}
@@ -82,5 +70,9 @@ public class GameSystem : MonoBehaviour {
 
 	public ActionSystem getActionSystem(){
 		return actionSystem;
+	}
+
+	public BattleSystem getBattleSystem(){
+		return battleSystem;
 	}
 }

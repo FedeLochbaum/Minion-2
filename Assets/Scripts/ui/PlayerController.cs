@@ -9,17 +9,30 @@ public class PlayerController : MonoBehaviour {
 	private Animator anim;
 	public GameSystem gameSystem;
 	private bool isRight;
+	private int countFrames;
+	private int count;
 
-	// Use this for initialization
 	void Start () {
 		isRight = false;
 		anim = GetComponent<Animator> ();
+		countFrames = 50;
+		count = countFrames;
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
-		move();
-		flip ();
+		if (!gameSystem.getBattleSystem ().getIsBattle ()) {
+			move ();
+			flip ();
+		}
+	}
+
+	void checkBattle () {
+		if (count <= 0) {
+			gameSystem.generateBattle ();
+			count = countFrames;
+		} else {
+			count--;
+		}
 	}
 
 	private void move(){
@@ -27,7 +40,7 @@ public class PlayerController : MonoBehaviour {
 			var movement = new Vector3 (Input.GetAxis ("Horizontal"), Input.GetAxis ("Vertical"), 0);
 			transform.position += movement * speed * Time.deltaTime;
 			moveAnimation ();
-			gameSystem.chanceOfBattle ();
+			checkBattle ();
 		} else
 			idleAnimation ();
 	}

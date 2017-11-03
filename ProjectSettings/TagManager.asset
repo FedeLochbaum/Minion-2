@@ -8,6 +8,8 @@ TagManager:
   - MenuOption
   - SelectAction
   - Team
+  - enemyInfo
+  - playerInfo
   layers:
   - Default
   - TransparentFX

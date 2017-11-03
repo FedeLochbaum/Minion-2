@@ -9,7 +9,6 @@ public class BattleSystem : MonoBehaviour {
 	private BattlePanel battlePanel;
 	private List<Entity> playerEntities;
 	private List<Entity> enemyEntities;
-
 	private bool isBattle;
 	private GameSystem gameSystem;
 
@@ -58,18 +57,16 @@ public class BattleSystem : MonoBehaviour {
 			gameOver ();
 	}
 
-	public void configCanvas ()
-	{
+	public void configCanvas () {
 		battlePanel.loadBattle (playerEntities, enemyEntities);
 	}
 
-	public void newBattle(List<Entity> players,List<Entity> enemies) {
+	public void newBattle(List<Entity> players, List<Entity> enemies) {
+		isBattle = true;
 		playerEntities = players;
 		enemyEntities = enemies;
 		configCanvas ();
 		turnSystem.newCombat (new List<Entity>().Concat(players).Concat(enemies).ToList());
-		isBattle = true;
-
 		nextPlayerTurn ();
 	}
 
