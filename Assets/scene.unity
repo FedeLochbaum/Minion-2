@@ -416,7 +416,7 @@ GameObject:
   - component: {fileID: 202449870}
   - component: {fileID: 202449869}
   m_Layer: 5
-  m_Name: FriendHealthBar 1
+  m_Name: FriendHealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -915,7 +915,7 @@ GameObject:
   - component: {fileID: 388306969}
   - component: {fileID: 388306968}
   m_Layer: 5
-  m_Name: FriendHealthBar 1
+  m_Name: FriendHealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2322,7 +2322,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2102088938}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.41662818
+  m_Size: 0.37508413
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2799,7 +2799,7 @@ MonoBehaviour:
     m_FontSize: 14
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 1
+    m_MinSize: 10
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -3387,7 +3387,7 @@ GameObject:
   - component: {fileID: 1316036527}
   - component: {fileID: 1316036526}
   m_Layer: 5
-  m_Name: FriendHealthBar 1
+  m_Name: FriendHealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4492,7 +4492,7 @@ MonoBehaviour:
     m_FontSize: 14
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 1
+    m_MinSize: 10
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -4944,7 +4944,7 @@ GameObject:
   - component: {fileID: 2140783493}
   - component: {fileID: 2140783492}
   m_Layer: 5
-  m_Name: FriendHealthBar 1
+  m_Name: FriendHealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

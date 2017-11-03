@@ -140,4 +140,12 @@ public class Stats : MonoBehaviour {
 
 		calculator.levelUp ();
 	}
+
+	public float getMaxHp(){
+		return calculator.getMaxHp ();
+	}
+
+	public float getMaxSp(){
+		return calculator.getMaxSp ();
+	}
 }

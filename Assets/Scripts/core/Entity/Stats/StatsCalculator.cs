@@ -61,6 +61,14 @@ public class StatsCalculator {
 		return stateCalculator.getHp ();
 	}
 
+	public float getMaxHp(){
+		return stateCalculator.maxHp ();
+	}
+
+	public float getMaxSp(){
+		return stateCalculator.maxSp ();
+	}
+
 	public void addEffect(Effect effect){
 		stateCalculator.addEffect (effect);
 		offensiveCalculator.addEffect(effect);

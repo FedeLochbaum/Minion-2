@@ -1,7 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using UnityEngine.UI;
 using UnityEngine;
-using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
+
+
 
 public class TeamInfoContainer : MonoBehaviour {
 
@@ -10,18 +12,36 @@ public class TeamInfoContainer : MonoBehaviour {
 
 		for( int i = 0; i < players.Count; ++i ) {
 			GameObject playerInfo = playersInfo [i];
-			playerInfo.GetComponent<Text>().text = players[i].getName().ToString();
-			//playerInfo.GetComponent<Image>().fillAmount = players[i].getStats().getHp() / 100f;
+		
+			Text[] texts = playerInfo.GetComponentsInChildren<Text>();
+	
+			texts[0].text = players[i].getStats().getHp().ToString() + "/ " + players[i].getStats().getMaxHp().ToString();
+			texts[1].text = players[i].getName().ToString();
+
+			Image uiImageHpPlayer = playerInfo.GetComponentInChildren<Image> ();
+			uiImageHpPlayer.fillAmount = players[i].getStats().getHp() / players[i].getStats().getMaxHp();
 		}
 	}
 
 	public void loadEnemies(List<Entity> enemies) {
-		GameObject[] playersInfo = GameObject.FindGameObjectsWithTag("enemyInfo");
+		GameObject[] enemiesInfo = GameObject.FindGameObjectsWithTag("enemyInfo");
 
 		for( int i = 0; i < enemies.Count; ++i ) {
-			GameObject enemyInfo = playersInfo [i];
-			enemyInfo.GetComponent<Text>().text = enemies[i].getName().ToString();
-			enemyInfo.GetComponent<Image>().fillAmount = enemies[i].getStats().getHp() / 100f;
+			GameObject enemyInfo = enemiesInfo [i];
+
+			Text[] texts = enemyInfo.GetComponentsInChildren<Text>();
+
+			texts[0].text = enemies[i].getStats().getHp().ToString() + "/ " + enemies[i].getStats().getMaxHp().ToString();
+			texts[1].text = enemies[i].getName().ToString();
+
+			Image uiImageHpPlayer = enemyInfo.GetComponentInChildren<Image> ();
+			uiImageHpPlayer.fillAmount = enemies[i].getStats().getHp() / enemies[i].getStats().getMaxHp();
+		}
+			
+
+		for(int i = enemies.Count; i < enemiesInfo.Length; ++i) {
+			GameObject enemyInfo = enemiesInfo [i];
+			enemyInfo.SetActive (false);
 		}
 	}
 }
