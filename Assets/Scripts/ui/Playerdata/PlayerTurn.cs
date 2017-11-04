@@ -1,19 +1,40 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerTurn : MonoBehaviour {
 
-	private PlayerHealthBar playerHealthBar;
-	private PlayerEnergyBar playerEnergyBar;
+	private Player playerTurn;
 
 	void Start () {
-		playerHealthBar = gameObject.GetComponent<PlayerHealthBar> ();
-		playerEnergyBar = gameObject.GetComponent<PlayerEnergyBar> ();
+
+	}
+
+	void playerHealthBar () {
+		GameObject healthBarObj = GameObject.FindGameObjectWithTag ("playerTurnHealth");
+
+		Text text = healthBarObj.GetComponentInChildren<Text>();
+		Image uiImageHpPlayer = healthBarObj.GetComponentInChildren<Image> ();
+
+		text.text = playerTurn.getStats().getHp().ToString() + "/ " + playerTurn.getStats().getMaxHp().ToString();
+		uiImageHpPlayer.fillAmount = playerTurn.getStats().getHp() / playerTurn.getStats().getMaxHp();
+	}
+
+	void playerEnergyBar () {
+		GameObject manaBarObj = GameObject.FindGameObjectWithTag ("playerTurnMana");
+
+		Text text = manaBarObj.GetComponentInChildren<Text>();
+		Image uiImageSpPlayer = manaBarObj.GetComponentInChildren<Image> ();
+
+		text.text = playerTurn.getStats().getSp().ToString() + "/ " + playerTurn.getStats().getMaxSp().ToString();
+		uiImageSpPlayer.fillAmount = playerTurn.getStats().getSp() / playerTurn.getStats().getMaxSp();
 	}
 
 	public void turnOf(Player entity){
-		playerHealthBar.load (entity);
-		playerEnergyBar.load (entity);
+		playerTurn = entity;
+
+		playerHealthBar();
+		playerEnergyBar();
 	}
 }

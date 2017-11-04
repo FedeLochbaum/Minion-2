@@ -10,6 +10,8 @@ TagManager:
   - Team
   - enemyInfo
   - playerInfo
+  - playerTurnHealth
+  - playerTurnMana
   layers:
   - Default
   - TransparentFX

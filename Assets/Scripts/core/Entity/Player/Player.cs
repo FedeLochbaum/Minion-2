@@ -6,13 +6,13 @@ public class Player : Entity {
 
 	protected List<Spell> magicSkills;
 	protected SpecialSkill special;
-	private BattlePanel battlePanel; 
+	protected BattlePanel battlePanel; 
 	// Falta Inventario con Items..
 
 	public Player (string name) : base(name) {
 		magicSkills = new List<Spell> ();
 		special = new SpecialSkill (stats, 0f, new List<Spell>(), "");
-		battlePanel = gameSystem.GetComponent<BattlePanel>();
+		battlePanel = gameSystem.battleCanvas.GetComponent<BattlePanel>();
 	}
 
 	public override void myTurn(){

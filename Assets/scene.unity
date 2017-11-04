@@ -1852,10 +1852,9 @@ GameObject:
   - component: {fileID: 616595579}
   - component: {fileID: 616595581}
   - component: {fileID: 616595580}
-  - component: {fileID: 616595582}
   m_Layer: 5
   m_Name: PlayerHealthBar
-  m_TagString: Untagged
+  m_TagString: playerTurnHealth
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1912,17 +1911,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 616595578}
---- !u!114 &616595582
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 616595578}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5290f08ac7a224b598ee1d21536f569c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &620991640
 GameObject:
   m_ObjectHideFlags: 0
@@ -2322,7 +2310,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2102088938}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.37508413
+  m_Size: 0.33977166
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3799,9 +3787,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Magic
-
-'
+  m_Text: Magic
 --- !u!222 &1660052278
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4731,10 +4717,9 @@ GameObject:
   - component: {fileID: 2104328867}
   - component: {fileID: 2104328869}
   - component: {fileID: 2104328868}
-  - component: {fileID: 2104328870}
   m_Layer: 5
   m_Name: PlayerEnergyBar
-  m_TagString: Untagged
+  m_TagString: playerTurnMana
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4791,17 +4776,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2104328866}
---- !u!114 &2104328870
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2104328866}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60553341bd5a544dcbe5893a48dc24f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2109077701
 GameObject:
   m_ObjectHideFlags: 0
