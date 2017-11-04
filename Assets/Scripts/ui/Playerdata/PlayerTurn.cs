@@ -31,10 +31,17 @@ public class PlayerTurn : MonoBehaviour {
 		uiImageSpPlayer.fillAmount = playerTurn.getStats().getSp() / playerTurn.getStats().getMaxSp();
 	}
 
+	void playerName () {
+		Text[] text = GetComponentsInChildren<Text>();
+
+		text[2].text = playerTurn.getName().ToString();
+	}
+
 	public void turnOf(Player entity){
 		playerTurn = entity;
 
 		playerHealthBar();
 		playerEnergyBar();
+		playerName ();
 	}
 }
