@@ -36,7 +36,7 @@ public class BattlePanel : MonoBehaviour {
 
 	public void selectAction(Player player) {
 		playerTurn.turnOf (player);
-		// En algun momento cuando el usuario seleccione su accion, debera llamar a algun SelectAction del Player
+		optionView.selectAction (player);
 	}
 
 	public void Wait(float seconds){

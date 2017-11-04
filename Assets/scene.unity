@@ -423,7 +423,7 @@ GameObject:
   - component: {fileID: 166323613}
   m_Layer: 5
   m_Name: Pointer
-  m_TagString: Untagged
+  m_TagString: pointer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -595,7 +595,7 @@ GameObject:
   - component: {fileID: 282830392}
   m_Layer: 5
   m_Name: Pointer
-  m_TagString: Untagged
+  m_TagString: pointer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1691,7 +1691,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.72166085, y: 0.8033003}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -5.25, y: 0.16949987}
+  m_AnchoredPosition: {x: -5.25, y: 0.16949463}
   m_SizeDelta: {x: 9.5, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &506967419
@@ -2244,6 +2244,7 @@ GameObject:
   - component: {fileID: 711032721}
   - component: {fileID: 711032723}
   - component: {fileID: 711032722}
+  - component: {fileID: 711032724}
   m_Layer: 5
   m_Name: Item
   m_TagString: Untagged
@@ -2309,6 +2310,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 711032720}
+--- !u!114 &711032724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 711032720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f440317c709b45d184b8121d78ff254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointer: {fileID: 1015663193}
+  nextObject: {fileID: 818640754}
+  backObject: {fileID: 1660052275}
 --- !u!1 &800698233
 GameObject:
   m_ObjectHideFlags: 0
@@ -2385,7 +2400,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2102088938}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.33977166
+  m_Size: 0.41558963
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2507,6 +2522,7 @@ GameObject:
   - component: {fileID: 818640755}
   - component: {fileID: 818640757}
   - component: {fileID: 818640756}
+  - component: {fileID: 818640758}
   m_Layer: 5
   m_Name: Flee
   m_TagString: Untagged
@@ -2572,6 +2588,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 818640754}
+--- !u!114 &818640758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 818640754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a55d2277a97449b496f9cd3517e22f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointer: {fileID: 1648901219}
+  nextObject: {fileID: 837273154}
+  backObject: {fileID: 711032720}
 --- !u!1 &832565480
 GameObject:
   m_ObjectHideFlags: 0
@@ -2656,6 +2686,7 @@ GameObject:
   - component: {fileID: 837273155}
   - component: {fileID: 837273157}
   - component: {fileID: 837273156}
+  - component: {fileID: 837273158}
   m_Layer: 5
   m_Name: Attack
   m_TagString: Untagged
@@ -2721,6 +2752,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 837273154}
+--- !u!114 &837273158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 837273154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 562499d1ab51d4f8eaec504396753306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointer: {fileID: 282830390}
+  nextObject: {fileID: 1660052275}
+  backObject: {fileID: 818640754}
 --- !u!1 &847834083
 GameObject:
   m_ObjectHideFlags: 0
@@ -3091,7 +3136,7 @@ GameObject:
   - component: {fileID: 1015663195}
   m_Layer: 5
   m_Name: Pointer
-  m_TagString: Untagged
+  m_TagString: pointer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3738,7 +3783,7 @@ GameObject:
   - component: {fileID: 1648901221}
   m_Layer: 5
   m_Name: Pointer
-  m_TagString: Untagged
+  m_TagString: pointer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3804,6 +3849,7 @@ GameObject:
   - component: {fileID: 1660052276}
   - component: {fileID: 1660052278}
   - component: {fileID: 1660052277}
+  - component: {fileID: 1660052279}
   m_Layer: 5
   m_Name: Magic
   m_TagString: Untagged
@@ -3869,6 +3915,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1660052275}
+--- !u!114 &1660052279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1660052275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e8d9950865e74c179351887447fbb6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointer: {fileID: 166323611}
+  nextObject: {fileID: 711032720}
+  backObject: {fileID: 837273154}
 --- !u!1 &1700772542
 GameObject:
   m_ObjectHideFlags: 0

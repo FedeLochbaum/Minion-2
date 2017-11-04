@@ -12,6 +12,7 @@ TagManager:
   - playerInfo
   - playerTurnHealth
   - playerTurnMana
+  - pointer
   layers:
   - Default
   - TransparentFX
