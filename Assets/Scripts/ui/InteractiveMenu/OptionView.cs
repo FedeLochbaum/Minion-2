@@ -34,7 +34,7 @@ public class OptionView : MonoBehaviour {
 				activeActionSelector ();
 			}
 
-			if (Input.GetKey (KeyCode.Z)) {
+			if (Input.GetKey (KeyCode.X)) {
 				selection = true;
 				actualActionView.selection (actualPlayer, players, enemies);
 			}
@@ -42,14 +42,16 @@ public class OptionView : MonoBehaviour {
 	}
 
 	public void resetActionView(){
+		if (actualActionView != null) {
+			actualActionView.disablePointer ();
+		}
 		actualActionView = GetComponentInChildren<AttackActionView> ();
 	}
 
 	public void restart(){
-		// cuando la ccion vuelve para atras
+		selection = false;
 		resetActionView ();
 		activeActionSelector ();
-		selection = false;
 	}
 
 	public void load(List<Entity> players, List<Entity> enemies) {

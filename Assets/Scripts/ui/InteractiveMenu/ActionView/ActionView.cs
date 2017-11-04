@@ -10,27 +10,31 @@ public abstract class ActionView : MonoBehaviour {
 
 	public GameObject backObject;
 
+	protected bool selected;
+
+	public void checkSelection(){
+		if (Input.GetKey (KeyCode.Z)) {
+			GetComponentInParent<OptionView> ().restart ();
+		}
+	}
+
 	public ActionView next(){
-		desactivePointer ();
+		disablePointer ();
 		return nextObject.GetComponent<ActionView> ();
 	}
 
 	public ActionView back(){
-		desactivePointer ();
+		disablePointer ();
 		return backObject.GetComponent<ActionView> ();
 	}
 
 	public abstract void selection(Player player, List<Entity> players, List<Entity> enemies);
 
-	public void backToMenuSelection(){
-		GetComponent<OptionView> ().restart ();
-	}
-
 	public void activePointer(){
 		pointer.SetActive (true);
 	}
 
-	public void desactivePointer(){
+	public void disablePointer(){
 		pointer.SetActive (false);
 	}
 }
