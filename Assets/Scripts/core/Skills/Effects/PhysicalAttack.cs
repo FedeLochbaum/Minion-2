@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Attack : Blessing {
+public class PhysicalAttack : Blessing {
 	
 	private float attack;
 
-	public Attack(float attack, int turns) : base(turns) {
+	public PhysicalAttack(float attack, int turns) : base(turns) {
 		this.attack = attack;
 	}
 

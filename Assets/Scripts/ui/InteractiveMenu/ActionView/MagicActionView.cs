@@ -46,6 +46,7 @@ public class MagicActionView : ActionView {
 			selected = false;
 			actual.disablePointer ();
 			actualSpell.disablePointer ();
+			restartSpellList ();
 		}
 	}
 
@@ -70,11 +71,15 @@ public class MagicActionView : ActionView {
 	}
 		
 	public void checkIfSelectActualTarget(){
-		if (Input.GetKeyDown (KeyCode.X)) {
+		if (Input.GetKeyDown (KeyCode.X) && canUseSpell()) {
 			pressBack ();
 			restartSpellList ();
 			player.selectMagicalAction (spellSelected, new List<Entity>{actual.entity});
 		}
+	}
+
+	public bool canUseSpell() {
+		return player.getStats ().getSp () >= spellSelected.getCost ();
 	}
 
 	public void restartSpellList(){
