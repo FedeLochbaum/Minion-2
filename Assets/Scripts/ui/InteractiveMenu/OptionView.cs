@@ -34,9 +34,9 @@ public class OptionView : MonoBehaviour {
 				activeActionSelector ();
 			}
 
-			if (Input.GetKey (KeyCode.X)) {
+			if (Input.GetKey (KeyCode.RightArrow)) {
 				selection = true;
-				actualActionView.selection (actualPlayer, players, enemies);
+				actualActionView.selection (actualPlayer);
 			}
 		}
 	}

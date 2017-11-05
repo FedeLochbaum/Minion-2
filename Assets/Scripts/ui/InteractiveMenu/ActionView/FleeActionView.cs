@@ -8,7 +8,7 @@ public class FleeActionView : ActionView {
 		selected = false;
 	}
 
-	public override void selection(Player player, List<Entity> players, List<Entity> enemies){
+	public override void selection(Player player){
 		GetComponentInParent<OptionView> ().restartSelection ();
 		player.selectRunAction ();
 	}

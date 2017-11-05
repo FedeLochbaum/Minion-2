@@ -14,7 +14,7 @@ public class MagicActionView : ActionView {
 		}
 	}
 
-	public override void selection(Player player, List<Entity> players, List<Entity> enemies){
+	public override void selection(Player player){
 		selected = true;
 	}
 }

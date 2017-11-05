@@ -4,6 +4,11 @@ using UnityEngine;
 
 public abstract class ActionView : MonoBehaviour {
 
+	protected GameObject[] enemies;
+	protected GameObject[] players;
+
+	protected Player player;
+
 	public GameObject pointer;
 
 	public GameObject nextObject;
@@ -28,7 +33,7 @@ public abstract class ActionView : MonoBehaviour {
 		return backObject.GetComponent<ActionView> ();
 	}
 
-	public abstract void selection(Player player, List<Entity> players, List<Entity> enemies);
+	public abstract void selection(Player player);
 
 	public void activePointer(){
 		pointer.SetActive (true);

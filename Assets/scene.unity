@@ -378,6 +378,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 115446856}
+  - component: {fileID: 115446857}
   m_Layer: 5
   m_Name: Enemy3
   m_TagString: enemyInfo
@@ -406,6 +407,21 @@ RectTransform:
   m_AnchoredPosition: {x: -0.19, y: 1.948}
   m_SizeDelta: {x: 0.38000488, y: 4.57312}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &115446857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 115446855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8256b79717e424a898a3eb69fe0ff2ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextObject: {fileID: 1617268740}
+  backObject: {fileID: 2008160304}
+  pointer: {fileID: 1669402180}
+  entity: {fileID: 0}
 --- !u!1 &154220740
 GameObject:
   m_ObjectHideFlags: 0
@@ -625,6 +641,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 263703047}
+  - component: {fileID: 263703048}
   m_Layer: 5
   m_Name: Friend3
   m_TagString: playerInfo
@@ -653,6 +670,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0.0000023544, y: 0.3760004}
   m_SizeDelta: {x: 0, y: 0.50766754}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &263703048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 263703046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8256b79717e424a898a3eb69fe0ff2ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextObject: {fileID: 1700772542}
+  backObject: {fileID: 2141658014}
+  pointer: {fileID: 98310737}
+  entity: {fileID: 0}
 --- !u!1 &282830390
 GameObject:
   m_ObjectHideFlags: 0
@@ -4051,6 +4083,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1598351805}
+  - component: {fileID: 1598351806}
   m_Layer: 5
   m_Name: Friend1
   m_TagString: playerInfo
@@ -4079,6 +4112,21 @@ RectTransform:
   m_AnchoredPosition: {x: -0.00048065186, y: -0.5927353}
   m_SizeDelta: {x: 0, y: 0.5454788}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1598351806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1598351804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8256b79717e424a898a3eb69fe0ff2ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextObject: {fileID: 2141658014}
+  backObject: {fileID: 1700772542}
+  pointer: {fileID: 1336612258}
+  entity: {fileID: 0}
 --- !u!1 &1617268740
 GameObject:
   m_ObjectHideFlags: 0
@@ -4087,6 +4135,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1617268741}
+  - component: {fileID: 1617268742}
   m_Layer: 5
   m_Name: Enemy4
   m_TagString: enemyInfo
@@ -4115,6 +4164,21 @@ RectTransform:
   m_AnchoredPosition: {x: -0.19, y: 1.8999977}
   m_SizeDelta: {x: 0.38000488, y: 5.57312}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1617268742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1617268740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8256b79717e424a898a3eb69fe0ff2ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextObject: {fileID: 1947299775}
+  backObject: {fileID: 115446855}
+  pointer: {fileID: 1958110129}
+  entity: {fileID: 0}
 --- !u!1 &1648901219
 GameObject:
   m_ObjectHideFlags: 0
@@ -4349,6 +4413,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1700772543}
+  - component: {fileID: 1700772544}
   m_Layer: 5
   m_Name: Friend4
   m_TagString: playerInfo
@@ -4377,6 +4442,21 @@ RectTransform:
   m_AnchoredPosition: {x: -0.30791998, y: -0.12200165}
   m_SizeDelta: {x: 0, y: 0.50766754}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1700772544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1700772542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8256b79717e424a898a3eb69fe0ff2ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextObject: {fileID: 1598351804}
+  backObject: {fileID: 263703046}
+  pointer: {fileID: 2145358602}
+  entity: {fileID: 0}
 --- !u!1 &1776993019
 GameObject:
   m_ObjectHideFlags: 0
@@ -4784,6 +4864,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1947299776}
+  - component: {fileID: 1947299777}
   m_Layer: 5
   m_Name: Enemy1
   m_TagString: enemyInfo
@@ -4812,6 +4893,21 @@ RectTransform:
   m_AnchoredPosition: {x: -0.19, y: 0.2865982}
   m_SizeDelta: {x: 0.38000488, y: 0.5731201}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1947299777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1947299775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8256b79717e424a898a3eb69fe0ff2ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextObject: {fileID: 2008160304}
+  backObject: {fileID: 1617268740}
+  pointer: {fileID: 511999228}
+  entity: {fileID: 0}
 --- !u!1 &1953731030
 GameObject:
   m_ObjectHideFlags: 0
@@ -5118,6 +5214,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 2008160305}
+  - component: {fileID: 2008160306}
   m_Layer: 5
   m_Name: Enemy2
   m_TagString: enemyInfo
@@ -5146,6 +5243,21 @@ RectTransform:
   m_AnchoredPosition: {x: -0.19, y: 2.1130009}
   m_SizeDelta: {x: 0.38000488, y: -3.42688}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2008160306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2008160304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8256b79717e424a898a3eb69fe0ff2ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextObject: {fileID: 115446855}
+  backObject: {fileID: 1947299775}
+  pointer: {fileID: 358429004}
+  entity: {fileID: 0}
 --- !u!1 &2011441368
 GameObject:
   m_ObjectHideFlags: 0
@@ -5631,6 +5743,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 2141658015}
+  - component: {fileID: 2141658016}
   m_Layer: 5
   m_Name: Friend2
   m_TagString: playerInfo
@@ -5659,6 +5772,21 @@ RectTransform:
   m_AnchoredPosition: {x: -0.0000023842, y: 0.38369942}
   m_SizeDelta: {x: 0, y: -0.49233246}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2141658016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2141658014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8256b79717e424a898a3eb69fe0ff2ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextObject: {fileID: 263703046}
+  backObject: {fileID: 1598351804}
+  pointer: {fileID: 1284511327}
+  entity: {fileID: 0}
 --- !u!1 &2145358602
 GameObject:
   m_ObjectHideFlags: 0

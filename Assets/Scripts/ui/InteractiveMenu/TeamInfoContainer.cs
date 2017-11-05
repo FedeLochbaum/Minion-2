@@ -13,6 +13,8 @@ public class TeamInfoContainer : MonoBehaviour {
 		for( int i = 0; i < players.Count; ++i ) {
 			GameObject playerInfo = playersInfo [i];
 		
+			playerInfo.GetComponent<ListController> ().entity = players[i];
+
 			Text[] texts = playerInfo.GetComponentsInChildren<Text>();
 	
 			texts[0].text = players[i].getStats().getHp().ToString() + "/ " + players[i].getStats().getMaxHp().ToString();
@@ -28,6 +30,8 @@ public class TeamInfoContainer : MonoBehaviour {
 
 		for( int i = 0; i < enemies.Count; ++i ) {
 			GameObject enemyInfo = enemiesInfo [i];
+
+			enemyInfo.GetComponent<ListController> ().entity = enemies[i];
 
 			Text[] texts = enemyInfo.GetComponentsInChildren<Text>();
 
