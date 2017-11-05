@@ -26,6 +26,8 @@ public class TeamInfoContainer : MonoBehaviour {
 	public void loadEnemies(List<Entity> enemies) {
 		GameObject[] enemiesInfo = GameObject.FindGameObjectsWithTag("enemyInfo");
 
+		print ("CANTIDAD DE ENEMIGOS: " + enemies.ToArray ().Length);
+
 		for( int i = 0; i < enemies.Count; ++i ) {
 			GameObject enemyInfo = enemiesInfo [i];
 

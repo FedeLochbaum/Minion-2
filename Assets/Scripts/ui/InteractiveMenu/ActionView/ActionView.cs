@@ -14,7 +14,7 @@ public abstract class ActionView : MonoBehaviour {
 
 	public void checkSelection(){
 		if (Input.GetKey (KeyCode.Z)) {
-			GetComponentInParent<OptionView> ().restart ();
+			GetComponentInParent<OptionView> ().restartSelection ();
 		}
 	}
 

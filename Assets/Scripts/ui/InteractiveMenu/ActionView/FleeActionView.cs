@@ -8,13 +8,8 @@ public class FleeActionView : ActionView {
 		selected = false;
 	}
 
-	void Update () {
-		if (selected) {
-			checkSelection ();
-		}
-	}
-
 	public override void selection(Player player, List<Entity> players, List<Entity> enemies){
-		selected = true;
+		GetComponentInParent<OptionView> ().restartSelection ();
+		player.selectRunAction ();
 	}
 }

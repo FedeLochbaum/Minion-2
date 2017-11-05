@@ -15,6 +15,6 @@ public class UseItemActionView : ActionView {
 	}
 
 	public override void selection(Player player, List<Entity> players, List<Entity> enemies){
-		selected = true;
+		//selected = true;
 	}
 }

@@ -7,7 +7,6 @@ public class Player : Entity {
 	protected List<Spell> magicSkills;
 	protected SpecialSkill special;
 	protected BattlePanel battlePanel; 
-	// Falta Inventario con Items..
 
 	public Player (string name) : base(name) {
 		magicSkills = new List<Spell> ();

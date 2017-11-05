@@ -15,7 +15,7 @@ public class OptionView : MonoBehaviour {
 	void Start () {
 		info = teamInfo.GetComponent<TeamInfoContainer> ();
 		resetActionView ();
-		selection = false;
+		restartSelection ();
 	}
 
 	void Update () {
@@ -48,16 +48,24 @@ public class OptionView : MonoBehaviour {
 		actualActionView = GetComponentInChildren<AttackActionView> ();
 	}
 
-	public void restart(){
+	public void restartSelection () {
 		selection = false;
+	}
+
+	public void restart(){
 		resetActionView ();
 		activeActionSelector ();
+		restartSelection ();
 	}
 
 	public void load(List<Entity> players, List<Entity> enemies) {
 		this.players = players;
 		this.enemies = enemies;
 
+		reload ();
+	}
+
+	public void reload(){
 		info.loadPlayers (players);
 		info.loadEnemies (enemies);
 	}
@@ -66,7 +74,7 @@ public class OptionView : MonoBehaviour {
 		actualActionView.activePointer ();
 	}
 
-	public void selectAction(Player player){
+	public void newTurnForSelectAction(Player player){
 		actualPlayer = player;
 		restart ();
 	}

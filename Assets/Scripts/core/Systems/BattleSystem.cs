@@ -91,4 +91,12 @@ public class BattleSystem : MonoBehaviour {
 	public bool getIsBattle(){
 		return isBattle;
 	}
+
+	public BattlePanel getBattlePanel(){
+		return battlePanel;
+	}
+
+	public void finishBattle(){
+		isBattle = false;
+	}
 }

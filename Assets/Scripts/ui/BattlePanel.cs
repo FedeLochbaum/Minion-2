@@ -7,9 +7,10 @@ public class BattlePanel : MonoBehaviour {
 	public GameObject playerTurnObject;
 	public GameObject optionViewObject;
 
-
 	private PlayerTurn playerTurn;
 	private OptionView optionView;
+
+
 
 	void Start () {
 		playerTurn = playerTurnObject.GetComponent<PlayerTurn> ();
@@ -18,9 +19,7 @@ public class BattlePanel : MonoBehaviour {
 
 	public void loadBattle(List<Entity> players, List<Entity> enemies){
 		gameObject.GetComponent<Canvas> ().enabled = true;
-
 		optionView.load (players, enemies);
-		// faltaria cargar el responsable de mostrar los enemigos y los players
 	}
 
 	public void finishBattle(){
@@ -28,15 +27,17 @@ public class BattlePanel : MonoBehaviour {
 	}
 
 	public void gameOver(){
+		finishBattle ();
 	}
 
 	public void win(){
-		
+		finishBattle ();
 	}
 
 	public void selectAction(Player player) {
 		playerTurn.turnOf (player);
-		optionView.selectAction (player);
+		optionView.newTurnForSelectAction (player);
+		optionView.reload ();
 	}
 
 	public void Wait(float seconds){

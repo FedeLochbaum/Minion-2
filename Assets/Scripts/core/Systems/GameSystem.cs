@@ -34,19 +34,20 @@ public class GameSystem : MonoBehaviour {
 	}
 
 	public void gameOver(){
-		battleSystem.GetComponent<BattlePanel> ().gameOver ();
+		battleSystem.getBattlePanel().gameOver ();
 		finishBattle ();
 	}
 
 	public void win(){
-		battleSystem.GetComponent<BattlePanel> ().win();
+		battleSystem.getBattlePanel().win();
 		levelingSystem.gainExperience (teamPlayer, teamEnemy);
 		finishBattle ();
 	}
 
 	public void finishBattle(){
-		battleSystem.GetComponent<BattlePanel> ().finishBattle ();
+		battleSystem.getBattlePanel().finishBattle ();
 		soundSystem.finishBattle ();
+		battleSystem.finishBattle ();
 	}
 
 	public void generateBattle(){
