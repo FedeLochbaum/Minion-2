@@ -27,8 +27,8 @@ public class Player : Entity {
 		applyAction (new RunAction ());
 	}
 
-	public void selectMagicalAction(int spellPosition, List<Entity> affectedEntities){
-		applyAction (new MagicalAction(this, affectedEntities, magicSkills[spellPosition]));
+	public void selectMagicalAction(Spell spellSelected, List<Entity> affectedEntities){
+		applyAction (new MagicalAction(this, affectedEntities, spellSelected));
 		finishTurn ();
 	}
 		

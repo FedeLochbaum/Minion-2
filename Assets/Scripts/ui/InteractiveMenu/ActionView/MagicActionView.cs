@@ -10,6 +10,8 @@ public class MagicActionView : ActionView {
 
 	private ListController actualSpell;
 
+	private Spell spellSelected;
+
 	GameObject[] spellsUi;
 
 	void Start () {
@@ -30,26 +32,54 @@ public class MagicActionView : ActionView {
 				checkTypeTarget ();
 				checkSelectionTarget ();
 				checkIfSelectActualTarget ();
+				pressBack ();
 			} else {
 				checkSpellSelected ();
+				pressBack ();
 			}
 		}
 	}
 
+	public void pressBack(){
+		if (Input.GetKey (KeyCode.Z)) {
+			actualSpell.disablePointer ();
+			actual.disablePointer ();
+			isSpellSelected = false;
+			selected = false;
+		}
+	}
+
 	public void checkSpellSelected(){
-		// Checkear skill que se selecciona
+		checkSelectionSpell ();
+
+		if (Input.GetKey (KeyCode.RightArrow)) {
+			isSpellSelected = true;
+			spellSelected = actualSpell.GetComponent<ListSpellController> ().spell;
+		}
+	}
+
+	public void checkSelectionSpell(){
+		if (Input.GetKey (KeyCode.UpArrow)) {
+			actualSpell = actualSpell.back();
+			actualSpell.activePointer ();
+		}
+
+		if (Input.GetKey (KeyCode.DownArrow)) {
+			actualSpell = actualSpell.next();
+			actualSpell.activePointer ();
+		}
 	}
 		
 	public void checkIfSelectActualTarget(){
 		if (Input.GetKey (KeyCode.X)) {
 			selected = false;
-			// falta obtener el numero de skill
-			player.selectMagicalAction (0, new List<Entity>{actual.entity});
+			player.selectMagicalAction (spellSelected, new List<Entity>{actual.entity});
 			actual.disablePointer ();
 		}
 	}
 
 	public override void selection(Player player){
+		isSpellSelected = false;
 		selected = true;
 		this.player = player;
 

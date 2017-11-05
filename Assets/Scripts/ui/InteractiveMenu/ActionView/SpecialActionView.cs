@@ -17,6 +17,14 @@ public class SpecialActionView : ActionView {
 			checkTypeTarget ();
 			checkSelectionTarget ();
 			checkIfSelectActualTarget ();
+			pressBack ();
+		}
+	}
+
+	public void pressBack(){
+		if (Input.GetKey (KeyCode.Z)) {
+			actual.disablePointer ();
+			selected = false;
 		}
 	}
 
