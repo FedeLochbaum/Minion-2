@@ -21,38 +21,37 @@ public class MagicActionView : ActionView {
 		spellsUi = GameObject.FindGameObjectsWithTag ("spell");
 
 		actual = players [0].GetComponent<ListController> ();
-		actualSpell = spellsUi [0].GetComponent<ListController> ();
+		actualSpell = spellsUi [3].GetComponent<ListController> ();
 		isSpellSelected = false;
 	}
 
 	void Update () {
 		if (selected) {
 			checkSelection ();
+			pressBack ();
 			if (isSpellSelected) {
 				checkTypeTarget ();
 				checkSelectionTarget ();
 				checkIfSelectActualTarget ();
-				pressBack ();
 			} else {
+				checkSelectionSpell ();
 				checkSpellSelected ();
-				pressBack ();
 			}
 		}
 	}
 
 	public void pressBack(){
-		if (Input.GetKey (KeyCode.Z)) {
-			actualSpell.disablePointer ();
-			actual.disablePointer ();
+		if (Input.GetKeyDown (KeyCode.Z)) {
 			isSpellSelected = false;
 			selected = false;
+			actual.disablePointer ();
+			actualSpell.disablePointer ();
 		}
 	}
 
 	public void checkSpellSelected(){
-		checkSelectionSpell ();
 
-		if (Input.GetKey (KeyCode.RightArrow)) {
+		if (Input.GetKeyDown (KeyCode.C)) {
 			isSpellSelected = true;
 			spellSelected = actualSpell.GetComponent<ListSpellController> ().spell;
 		}
@@ -71,10 +70,25 @@ public class MagicActionView : ActionView {
 	}
 		
 	public void checkIfSelectActualTarget(){
-		if (Input.GetKey (KeyCode.X)) {
-			selected = false;
+		if (Input.GetKeyDown (KeyCode.X)) {
+			pressBack ();
+			restartSpellList ();
 			player.selectMagicalAction (spellSelected, new List<Entity>{actual.entity});
-			actual.disablePointer ();
+		}
+	}
+
+	public void restartSpellList(){
+		GameObject[] spells = GameObject.FindGameObjectsWithTag ("spell");
+
+		for( int i = 0; i < spells.Length; ++i ) {
+			GameObject gameObjectSpell = spells [i];
+
+			Text nameSpell = gameObjectSpell.GetComponentInChildren<Text> ();
+
+			nameSpell.text = "";
+
+			gameObjectSpell.GetComponent<ListController> ().disablePointer();
+			gameObjectSpell.GetComponent<ListSpellController> ().spell = null;
 		}
 	}
 
