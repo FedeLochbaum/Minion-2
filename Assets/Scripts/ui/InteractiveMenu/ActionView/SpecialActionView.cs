@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackActionView : ActionView {
+public class SpecialActionView : ActionView {
 
 	void Start () {
 		selected = false;
@@ -19,11 +19,11 @@ public class AttackActionView : ActionView {
 			checkIfSelectActualTarget ();
 		}
 	}
-		
+
 	public void checkIfSelectActualTarget(){
 		if (Input.GetKey (KeyCode.X)) {
 			selected = false;
-			player.selectPhysicalAttackAction (actual.entity);
+			player.selectSpecialAction (new List<Entity>{actual.entity});
 			actual.disablePointer ();
 		}
 	}

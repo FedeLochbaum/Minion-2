@@ -8,14 +8,18 @@ public class MagicActionView : ActionView {
 
 	private bool isSpellSelected;
 
-	GameObject spellsUi;
+	private ListController actualSpell;
+
+	GameObject[] spellsUi;
 
 	void Start () {
 		selected = false;
 		players = GameObject.FindGameObjectsWithTag ("playerInfo");
 		enemies = GameObject.FindGameObjectsWithTag ("enemyInfo");
+		spellsUi = GameObject.FindGameObjectsWithTag ("spell");
+
 		actual = players [0].GetComponent<ListController> ();
-		spellsUi = GameObject.FindGameObjectWithTag ("skills");
+		actualSpell = spellsUi [0].GetComponent<ListController> ();
 		isSpellSelected = false;
 	}
 
@@ -45,13 +49,28 @@ public class MagicActionView : ActionView {
 		}
 	}
 
-	public new void selection(Player player){
+	public override void selection(Player player){
 		selected = true;
 		this.player = player;
 
+		GameObject[] spells = GameObject.FindGameObjectsWithTag ("spell");
 		List<Spell> playerSpells = player.getMagicalSkills ();
-		foreach(Spell spell in playerSpells) {
-			// Agregar skills 
+
+		for( int i = 0; i < playerSpells.Count; ++i ) {
+			GameObject gameObjectSpell = spells [i];
+			Spell spell = playerSpells [i];
+
+			Text nameSpell = gameObjectSpell.GetComponentInChildren<Text> ();
+
+			nameSpell.text = spell.getName () + "       " + spell.getCost ().ToString();
+
+			gameObjectSpell.GetComponent<ListSpellController> ().spell = spell;
+		}
+
+		for (int i = playerSpells.Count; i < spells.Length; ++i) {
+			GameObject gameObjectSpell = spells [i];
+			Text nameSpell = gameObjectSpell.GetComponentInChildren<Text> ();
+			nameSpell.text = "";
 		}
 	}
 

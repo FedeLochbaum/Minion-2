@@ -5,10 +5,7 @@ using UnityEngine;
 public class Aragorn : Player {
 
 	public Aragorn() : base("Aragorn"){
-	}
-
-	void Start () {
-		Spell protect = new EffectSpell (stats, new Protect(15f), 30f, "protect");
+		Spell protect = new EffectSpell (stats, new Protect(15f), 30f, "Protect");
 		magicSkills.Add (protect);
 	}
 }

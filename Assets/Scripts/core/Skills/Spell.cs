@@ -15,4 +15,12 @@ public abstract class Spell : MonoBehaviour {
 	}
 
 	public abstract void apply (Entity entity);
+
+	public string getName(){
+		return nameSpell;
+	}
+
+	public float getCost(){
+		return cost;
+	}
 }
