@@ -27,9 +27,4 @@ public class AttackActionView : ActionView {
 			actual.disablePointer ();
 		}
 	}
-
-	public override void selection(Player player){
-		selected = true;
-		this.player = player;
-	}
 }

@@ -13,6 +13,8 @@ TagManager:
   - playerTurnHealth
   - playerTurnMana
   - pointer
+  - skills
+  - spell
   layers:
   - Default
   - TransparentFX

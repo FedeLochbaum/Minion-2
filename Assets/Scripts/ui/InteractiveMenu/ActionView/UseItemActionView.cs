@@ -14,7 +14,7 @@ public class UseItemActionView : ActionView {
 		}
 	}
 
-	public override void selection(Player player){
+	public new void selection(Player player){
 		//Falta implementar Items
 		//selected = true;
 	}

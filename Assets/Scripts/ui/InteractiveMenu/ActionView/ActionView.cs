@@ -34,7 +34,10 @@ public abstract class ActionView : MonoBehaviour {
 		return backObject.GetComponent<ActionView> ();
 	}
 
-	public abstract void selection(Player player);
+	public void selection(Player player){
+		selected = true;
+		this.player = player;
+	}
 
 	public void activePointer(){
 		pointer.SetActive (true);

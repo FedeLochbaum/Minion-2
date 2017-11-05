@@ -8,7 +8,7 @@ public class FleeActionView : ActionView {
 		selected = false;
 	}
 
-	public override void selection(Player player){
+	public new void selection(Player player){
 		GetComponentInParent<OptionView> ().restartSelection ();
 		player.selectRunAction ();
 	}

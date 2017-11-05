@@ -42,4 +42,12 @@ public class Player : Entity {
 		finishTurn ();
 	}
 
+	public List<Spell> getMagicalSkills(){
+		return magicSkills;
+	}
+
+	public Spell getSpecialSkill(){
+		return special;
+	}
+
 }
