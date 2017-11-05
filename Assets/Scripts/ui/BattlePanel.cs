@@ -27,10 +27,12 @@ public class BattlePanel : MonoBehaviour {
 	}
 
 	public void gameOver(){
+		print ("GameOver");
 		finishBattle ();
 	}
 
 	public void win(){
+		print ("Win");
 		finishBattle ();
 	}
 

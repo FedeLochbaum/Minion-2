@@ -11,11 +11,13 @@ public class OptionView : MonoBehaviour {
 	private List<Entity> players, enemies;
 	private ActionView actualActionView;
 	private bool selection;
+	private bool isLoad;
 
 	void Start () {
 		info = teamInfo.GetComponent<TeamInfoContainer> ();
 		resetActionView ();
 		restartSelection ();
+		isLoad = false;
 	}
 
 	void Update () {
@@ -23,7 +25,7 @@ public class OptionView : MonoBehaviour {
 	}
 
 	public void checkSelectActions (){
-		if (!selection) {
+		if (!selection && isLoad) {
 			if (Input.GetKey (KeyCode.UpArrow)) {
 				actualActionView = actualActionView.back ();
 				activeActionSelector ();
@@ -59,6 +61,7 @@ public class OptionView : MonoBehaviour {
 	}
 
 	public void load(List<Entity> players, List<Entity> enemies) {
+		isLoad = true;
 		this.players = players;
 		this.enemies = enemies;
 

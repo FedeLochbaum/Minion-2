@@ -22,11 +22,19 @@ public class ListController : MonoBehaviour {
 
 	public ListController next(){
 		disablePointer ();
-		return nextObject.GetComponent<ListController> ();
+		ListController next = nextObject.GetComponent<ListController> ();
+		//if (next.entity == null) {
+		//	next = next.next ();
+		//}
+		return next;
 	}
 
 	public ListController back(){
 		disablePointer ();
-		return backObject.GetComponent<ListController> ();
+		ListController back = backObject.GetComponent<ListController> ();
+		//if (back.entity == null) {
+		//	back = back.back ();
+		//}
+		return back;
 	}
 }

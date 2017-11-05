@@ -6,6 +6,7 @@ public abstract class ActionView : MonoBehaviour {
 
 	protected GameObject[] enemies;
 	protected GameObject[] players;
+	protected ListController actual;
 
 	protected Player player;
 
@@ -41,5 +42,35 @@ public abstract class ActionView : MonoBehaviour {
 
 	public void disablePointer(){
 		pointer.SetActive (false);
+	}
+
+	public void checkTypeTarget(){
+		if (Input.GetKey (KeyCode.LeftArrow)) {
+			if (actual != null) {
+				actual.disablePointer ();
+			}
+			actual = enemies [0].GetComponent<ListController> ();
+			actual.activePointer ();
+		}
+
+		if (Input.GetKey (KeyCode.RightArrow)) {
+			if (actual != null) {
+				actual.disablePointer ();
+			}
+			actual = players [0].GetComponent<ListController> ();
+			actual.activePointer ();
+		}
+	}
+
+	public void checkSelectionTarget(){
+		if (Input.GetKey (KeyCode.UpArrow)) {
+			actual = actual.back();
+			actual.activePointer ();
+		}
+
+		if (Input.GetKey (KeyCode.DownArrow)) {
+			actual = actual.next();
+			actual.activePointer ();
+		}
 	}
 }

@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class AttackActionView : ActionView {
 
-	ListController actual;
-
 	void Start () {
 		selected = false;
 		players = GameObject.FindGameObjectsWithTag ("playerInfo");
@@ -21,41 +19,12 @@ public class AttackActionView : ActionView {
 			checkIfSelectActualTarget ();
 		}
 	}
-
-	public void checkTypeTarget(){
-		if (Input.GetKey (KeyCode.LeftArrow)) {
-			if (actual != null) {
-				actual.disablePointer ();
-			}
-			actual = enemies [0].GetComponent<ListController> ();
-			actual.activePointer ();
-		}
-
-		if (Input.GetKey (KeyCode.RightArrow)) {
-			if (actual != null) {
-				actual.disablePointer ();
-			}
-			actual = players [0].GetComponent<ListController> ();
-			actual.activePointer ();
-		}
-	}
-
-	public void checkSelectionTarget(){
-		if (Input.GetKey (KeyCode.UpArrow)) {
-			actual = actual.back();
-			actual.activePointer ();
-		}
-
-		if (Input.GetKey (KeyCode.DownArrow)) {
-			actual = actual.next();
-			actual.activePointer ();
-		}
-	}
-
+		
 	public void checkIfSelectActualTarget(){
 		if (Input.GetKey (KeyCode.X)) {
-			print ("Attack");
+			selected = false;
 			player.selectPhysicalAttackAction (actual.entity);
+			actual.disablePointer ();
 		}
 	}
 
