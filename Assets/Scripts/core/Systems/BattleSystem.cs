@@ -35,14 +35,12 @@ public class BattleSystem : MonoBehaviour {
 		foreach (Entity entity in playerEntities) {
 			if (entity.isDie ()) {
 				playerEntities.Remove (entity);
-				turnSystem.removeEntity (entity);
 			}
 		}
 
 		foreach (Entity entity in enemyEntities) {
 			if (entity.isDie ()) {
 				enemyEntities.Remove (entity);
-				turnSystem.removeEntity (entity);
 			}
 		}
 	}

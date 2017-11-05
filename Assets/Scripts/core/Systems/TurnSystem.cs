@@ -17,8 +17,13 @@ public class TurnSystem : MonoBehaviour {
 
 	public void nextTurn(){
 		Entity first = entities.Dequeue ();
-		entities.Enqueue (first);
-		first.myTurn ();
+
+		if (!first.isDie ()) {
+			entities.Enqueue (first);
+			first.myTurn ();
+		} else {
+			nextTurn ();
+		}
 	}
 
 	public List<Entity> sortEntities(List<Entity> entities){

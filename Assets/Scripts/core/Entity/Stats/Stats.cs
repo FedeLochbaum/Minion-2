@@ -71,12 +71,12 @@ public class Stats : MonoBehaviour {
 		calculator.removeEffect (effect);
 	}
 
-	public float getSp(){
-		return calculator.getSp ();
+	public int getSp(){
+		return (int) calculator.getSp ();
 	}
 
-	public float getHp(){
-		return calculator.getHp ();
+	public int getHp(){
+		return (int) calculator.getHp ();
 	}
 
 	// Getters
@@ -141,11 +141,11 @@ public class Stats : MonoBehaviour {
 		calculator.levelUp ();
 	}
 
-	public float getMaxHp(){
-		return calculator.getMaxHp ();
+	public int getMaxHp(){
+		return (int) calculator.getMaxHp ();
 	}
 
-	public float getMaxSp(){
-		return calculator.getMaxSp ();
+	public int getMaxSp(){
+		return (int) calculator.getMaxSp ();
 	}
 }
