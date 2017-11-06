@@ -10,11 +10,11 @@ public class ReduceDefense : Curse {
 		this.reduce = def;
 	}
 		
-	public float affectPhysicalDefense(float def){
+	public new float affectPhysicalDefense(float def){
 		return Mathf.Max(def - reduce, 0);
 	}
 
-	public float affectMagicalDefense(float def){
+	public new float affectMagicalDefense(float def){
 		return Mathf.Max(def - reduce, 0);
 	}
 }

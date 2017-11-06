@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RunAction : Action {
+public class FleeAction : Action {
 
 	private float probabilityOfEscape = 40f;
 

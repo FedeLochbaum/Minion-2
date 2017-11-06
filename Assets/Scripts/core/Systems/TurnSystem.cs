@@ -17,11 +17,11 @@ public class TurnSystem : MonoBehaviour {
 
 	public void nextTurn(){
 		Entity first = entities.Dequeue ();
-
 		if (!first.isDie ()) {
 			entities.Enqueue (first);
 			first.myTurn ();
 		} else {
+			removeEntity (first);
 			nextTurn ();
 		}
 	}
