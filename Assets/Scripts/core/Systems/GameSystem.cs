@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class GameSystem : MonoBehaviour {
 
+	public Sprite kvotheSprite;
+	public Sprite neteroSprite;
+	public Sprite tyrandeSprite;
+	public Sprite aragornSprite;
+
 	public List<Sprite> randomSprites;
 	public Canvas battleCanvas;
 
@@ -21,7 +26,17 @@ public class GameSystem : MonoBehaviour {
 		battleSystem = new BattleSystem (this, battleCanvas);
 		actionSystem = new ActionSystem (this);
 
-		teamPlayer = new List<Entity>{new Aragorn(), new Kvothe(), new Netero(), new Tyrande() };
+		Player aragorn = new Aragorn ();
+		Player kvothe = new Kvothe ();
+		Player netero = new Netero ();
+		Player tyrande = new Tyrande ();
+
+		aragorn.sprite = aragornSprite;
+		kvothe.sprite = kvotheSprite;
+		netero.sprite = neteroSprite;
+		tyrande.sprite = tyrandeSprite;
+
+		teamPlayer = new List<Entity>{aragorn, kvothe, netero, tyrande};
 
 		strategies = new List<BattleStrategy>{ new EasyStrategy ()};
 		soundSystem = gameObject.GetComponent<SoundSystem> ();
