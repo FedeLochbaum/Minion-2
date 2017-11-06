@@ -47,7 +47,7 @@ public class GameSystem : MonoBehaviour {
 		battleSystem.nextPlayerTurn ();
 	}
 
-	public void gameOver(){
+	public void gameOver() {
 		battleSystem.getBattlePanel().gameOver ();
 		finishBattle ();
 	}

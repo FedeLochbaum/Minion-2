@@ -20,39 +20,25 @@ public class BattleSystem : MonoBehaviour {
 		isBattle = false;
 	}
 
-	void Update () {
-		
-		if (isBattle) {
-			checkIfAnyEntityDie ();
-
-			checkIfWinPlayer ();
-
-			checkIfDiePlayer ();
-		}
-	}
-
-	public void checkIfAnyEntityDie(){
-		foreach (Entity entity in playerEntities) {
-			if (entity.isDie ()) {
-				playerEntities.Remove (entity);
-			}
-		}
-
-		foreach (Entity entity in enemyEntities) {
-			if (entity.isDie ()) {
-				enemyEntities.Remove (entity);
-			}
-		}
-	}
-
 	public void checkIfWinPlayer(){
-		if(enemyEntities.Count == 0)
-			win ();
+		// Quiero hacer map.all y listo
+		bool res = true;
+
+		foreach (Entity enemy in enemyEntities) {
+			res = res && enemy.isDie ();
+		}
+
+		if (res) win ();
 	}
 
 	public void checkIfDiePlayer(){
-		if(playerEntities.Count == 0)
-			gameOver ();
+		bool res = true;
+
+		foreach (Entity player in playerEntities) {
+			res = res && player.isDie ();
+		}
+
+		if (res) gameOver ();
 	}
 
 	public void configCanvas () {
@@ -69,6 +55,10 @@ public class BattleSystem : MonoBehaviour {
 	}
 
 	public void nextPlayerTurn(){
+		// Chequea si se gano o perdio antes de cada turno.
+		checkIfWinPlayer ();
+		checkIfDiePlayer ();
+
 		turnSystem.nextTurn ();
 	}
 
