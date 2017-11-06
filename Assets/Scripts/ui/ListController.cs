@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ListController : MonoBehaviour {
 
@@ -10,7 +11,15 @@ public class ListController : MonoBehaviour {
 
 	public GameObject pointer;
 
+	public GameObject objectSprite;
+
 	public Entity entity;
+
+	public void activeSprite() {
+		objectSprite.SetActive (true);
+
+		objectSprite.GetComponent<Image> ().sprite = entity.getSprite ();
+	}
 
 	public void activePointer(){
 		pointer.SetActive (true);

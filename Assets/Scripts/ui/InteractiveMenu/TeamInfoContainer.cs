@@ -39,7 +39,11 @@ public class TeamInfoContainer : MonoBehaviour {
 		for( int i = 0; i < enemies.Count; ++i ) {
 			GameObject enemyInfo = enemiesInfo [i];
 
+
+
 			enemyInfo.GetComponent<ListController> ().entity = enemies[i];
+
+			enemyInfo.GetComponent<ListController> ().activeSprite ();
 
 			Text[] texts = enemyInfo.GetComponentsInChildren<Text>();
 

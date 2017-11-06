@@ -9,6 +9,8 @@ public abstract class Entity : MonoBehaviour {
 	protected ActionSystem actionSystem;
 	protected GameSystem gameSystem;
 
+	public Sprite sprite;
+
 	public Entity (string name) {
 		entityName = name;
 		stats = new Stats ();
@@ -46,6 +48,10 @@ public abstract class Entity : MonoBehaviour {
 
 	public float getExperience(){
 		return 1f;
+	}
+
+	public Sprite getSprite() {
+		return sprite;
 	}
 
 }

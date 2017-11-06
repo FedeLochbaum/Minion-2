@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameSystem : MonoBehaviour {
 
-
+	public List<Sprite> randomSprites;
 	public Canvas battleCanvas;
 
 	private int maximumAmountOfEnemies = 4;
@@ -21,7 +21,6 @@ public class GameSystem : MonoBehaviour {
 		battleSystem = new BattleSystem (this, battleCanvas);
 		actionSystem = new ActionSystem (this);
 
-		//teamPlayer = new List<Entity>(GameObject.FindObjectsOfType<Player> ());
 		teamPlayer = new List<Entity>{new Aragorn(), new Kvothe(), new Netero(), new Tyrande() };
 
 		strategies = new List<BattleStrategy>{ new EasyStrategy ()};
@@ -60,10 +59,11 @@ public class GameSystem : MonoBehaviour {
 		BattleStrategy strategyOfMonsters = strategies [Random.Range (0, strategies.ToArray ().Length)];
 		List<Entity> enemies = new List<Entity> ();
 		for(int i = 1; i <= numberOfEnemies; ++i){
-			// Es probable que cambie luego.
-			// Luego sera necesario ponerle un sprite.
-			// Darle tambien un nivel a los enemies y que a partir de esto tambien les cambie los stats.
+
 			Entity enemy = new Enemy("Enemy " + i,teamPlayer, strategyOfMonsters);
+
+			enemy.sprite = randomSprites [Random.Range (0, randomSprites.Count - 1)];
+
 			enemies.Add(enemy);
 		}
 		return enemies;
