@@ -23,18 +23,18 @@ public class ListController : MonoBehaviour {
 	public ListController next(){
 		disablePointer ();
 		ListController next = nextObject.GetComponent<ListController> ();
-		//if (next.entity == null) {
-		//	next = next.next ();
-		//}
+		if (!next.isActiveAndEnabled) {
+			return next.next ();
+		}
 		return next;
 	}
 
 	public ListController back(){
 		disablePointer ();
 		ListController back = backObject.GetComponent<ListController> ();
-		//if (back.entity == null) {
-		//	back = back.back ();
-		//}
+		if (!back.isActiveAndEnabled) {
+			return back.back ();
+		}
 		return back;
 	}
 }
