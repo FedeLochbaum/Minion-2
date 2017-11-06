@@ -7,9 +7,15 @@ using System.Collections.Generic;
 
 public class TeamInfoContainer : MonoBehaviour {
 
-	public void loadPlayers(List<Entity> players) {
-		GameObject[] playersInfo = GameObject.FindGameObjectsWithTag("playerInfo");
+	GameObject[] playersInfo;
+	GameObject[] enemiesInfo;
 
+	void Start () {
+		playersInfo = GameObject.FindGameObjectsWithTag("playerInfo");
+		enemiesInfo = GameObject.FindGameObjectsWithTag("enemyInfo");
+	}
+
+	public void loadPlayers(List<Entity> players) {
 		for( int i = 0; i < players.Count; ++i ) {
 			GameObject playerInfo = playersInfo [i];
 		
@@ -26,8 +32,10 @@ public class TeamInfoContainer : MonoBehaviour {
 	}
 
 	public void loadEnemies(List<Entity> enemies) {
-		GameObject[] enemiesInfo = GameObject.FindGameObjectsWithTag("enemyInfo");
-
+		foreach (GameObject go in enemiesInfo) {
+			go.SetActive (true);
+		}
+			
 		for( int i = 0; i < enemies.Count; ++i ) {
 			GameObject enemyInfo = enemiesInfo [i];
 

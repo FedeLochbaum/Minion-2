@@ -15,6 +15,7 @@ TagManager:
   - pointer
   - skills
   - spell
+  - enemyTeam
   layers:
   - Default
   - TransparentFX
