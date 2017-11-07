@@ -9,8 +9,8 @@ public class FleeAction : Action {
 	public override void apply (){
 		float chance = Random.Range(0f, 100f);
 
-		//if (chance <= probabilityOfEscape) {
-		GameObject.FindObjectOfType<GameSystem> ().finishBattle ();
-		//}
+		if (chance <= probabilityOfEscape) {
+			GameObject.FindObjectOfType<GameSystem> ().finishBattle ();
+		}
 	}
 }

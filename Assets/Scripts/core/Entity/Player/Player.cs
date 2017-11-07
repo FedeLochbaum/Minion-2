@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Player : Entity {
 
-	protected List<Spell> magicSkills;
 	protected SpecialSkill special;
 	protected BattlePanel battlePanel; 
 
@@ -41,10 +40,6 @@ public class Player : Entity {
 	public void selectUseItem(Item item, List<Entity> affectedEntities){
 		applyAction (new UseItemAction (this, affectedEntities, item));
 		finishTurn ();
-	}
-
-	public List<Spell> getMagicalSkills(){
-		return magicSkills;
 	}
 
 	public Spell getSpecialSkill(){

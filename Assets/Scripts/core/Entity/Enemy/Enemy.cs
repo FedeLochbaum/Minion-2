@@ -8,6 +8,7 @@ public class Enemy : Entity {
 	private BattleStrategy strategy;
 
 	public Enemy (string name, List<Entity> battlePlayers, BattleStrategy strategy) : base(name) {
+		magicSkills = new List<Spell> ();
 		this.battlePlayers = battlePlayers;
 		this.strategy = strategy;
 	}

@@ -43,7 +43,7 @@ public class GameSystem : MonoBehaviour {
 
 		teamPlayer = new List<Entity>{aragorn, kvothe, netero, tyrande};
 
-		strategies = new List<BattleStrategy>{ new EasyStrategy ()};
+		strategies = new List<BattleStrategy>{ new EasyStrategy (), new NormalStrategy()};
 		soundSystem = gameObject.GetComponent<SoundSystem> ();
 		soundSystem.playAmbientSound();
 	}

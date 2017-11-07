@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Entity : MonoBehaviour {
-
+	
+	protected List<Spell> magicSkills;
 	protected string entityName;
 	public Stats stats; 
 	protected ActionSystem actionSystem;
@@ -58,4 +59,11 @@ public abstract class Entity : MonoBehaviour {
 		stats.getLevel ().addExperience (exp);
 	}
 
+	public List<Spell> getMagicalSkills(){
+		return magicSkills;
+	}
+
+	public bool canUseSpell(Spell spell){
+		return stats.getSp () >= spell.getCost ();
+	}
 }
