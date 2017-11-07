@@ -29,11 +29,15 @@ public class SpecialActionView : ActionView {
 	}
 
 	public void checkIfSelectActualTarget(){
-		if (Input.GetKey (KeyCode.X)) {
+		if (Input.GetKey (KeyCode.X) && canUseSpell()) {
 			selected = false;
 			player.selectSpecialAction (new List<Entity>{actual.entity});
 			actual.disablePointer ();
 		}
+	}
+
+	public bool canUseSpell() {
+		return player.getStats ().getSp () >= player.getSpecialSkill().getCost ();
 	}
 
 	public override void selection (Player player) {

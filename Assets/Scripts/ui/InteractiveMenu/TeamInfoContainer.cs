@@ -29,6 +29,7 @@ public class TeamInfoContainer : MonoBehaviour {
 			float maxHp = players [i].getStats ().getMaxHp ();
 	
 			texts[0].text = hp.ToString() + "/ " + maxHp.ToString();
+		
 			texts[1].text = players[i].getName().ToString();
 
 			Image uiImageHpPlayer = playerInfo.GetComponentInChildren<Image> ();
