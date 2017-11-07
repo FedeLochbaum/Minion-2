@@ -77,6 +77,8 @@ public class GameSystem : MonoBehaviour {
 
 			Entity enemy = new Enemy("Enemy " + i,teamPlayer, strategyOfMonsters);
 
+			enemy.getStats().getLevel().addExperience(Random.Range (1, maxLevelPlayer ()) * 1000);
+
 			enemy.sprite = randomSprites [Random.Range (0, randomSprites.Count - 1)];
 
 			enemies.Add(enemy);
@@ -90,5 +92,16 @@ public class GameSystem : MonoBehaviour {
 
 	public BattleSystem getBattleSystem(){
 		return battleSystem;
+	}
+
+	public float maxLevelPlayer (){
+		float maxLevel = 1;
+
+		foreach (Entity player in teamPlayer) {
+			float levelPlayer = player.getStats ().getLevel ().getLevel ();
+			maxLevel = (levelPlayer >= maxLevel) ? levelPlayer : maxLevel;
+		}
+
+		return maxLevel;
 	}
 }

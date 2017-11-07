@@ -141,11 +141,11 @@ public class Stats : MonoBehaviour {
 		calculator.levelUp ();
 	}
 
-	public int getMaxHp(){
-		return (int) calculator.getMaxHp ();
+	public float getMaxHp(){
+		return calculator.getMaxHp ();
 	}
 
-	public int getMaxSp(){
-		return (int) calculator.getMaxSp ();
+	public float getMaxSp(){
+		return calculator.getMaxSp ();
 	}
 }

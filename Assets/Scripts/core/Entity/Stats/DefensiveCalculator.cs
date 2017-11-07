@@ -26,11 +26,12 @@ public class DefensiveCalculator : Calculator {
 	}
 
 	public float applyDodgeRate(float damage){
-		float dodgePercentage = 100 - flee();
+		float dodgePercentage = 100 - flee() / 2;
 
-		if (Random.Range (1, 100) <= dodgePercentage) {
-			return 0;
-		}
+		// Sistema de Miss
+		//if (Random.Range (1, 100) <= dodgePercentage) {
+		//	return 0;
+		//}
 		return damage;
 	}
 

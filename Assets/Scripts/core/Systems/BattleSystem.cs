@@ -28,7 +28,9 @@ public class BattleSystem : MonoBehaviour {
 			res = res && enemy.isDie ();
 		}
 
-		if (res) win ();
+		if (res) {
+			win ();
+		}
 	}
 
 	public void checkIfDiePlayer(){
@@ -38,7 +40,9 @@ public class BattleSystem : MonoBehaviour {
 			res = res && player.isDie ();
 		}
 
-		if (res) gameOver ();
+		if (res) {
+			gameOver ();
+		}
 	}
 
 	public void configCanvas () {
@@ -55,7 +59,6 @@ public class BattleSystem : MonoBehaviour {
 	}
 
 	public void nextPlayerTurn(){
-		// Chequea si se gano o perdio antes de cada turno.
 		checkIfWinPlayer ();
 		checkIfDiePlayer ();
 

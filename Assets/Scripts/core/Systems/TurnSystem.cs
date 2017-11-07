@@ -19,9 +19,10 @@ public class TurnSystem : MonoBehaviour {
 		Entity first = entities.Dequeue ();
 		if (!first.isDie ()) {
 			entities.Enqueue (first);
+			print (first.getName ());
 			first.myTurn ();
 		} else {
-			removeEntity (first);
+			// removeEntity (first); ya lo hace cuando hace dequeue
 			nextTurn ();
 		}
 	}
@@ -32,7 +33,7 @@ public class TurnSystem : MonoBehaviour {
 		return entities;
 	}
 
-	public void removeEntity(Entity entity){
+	public void removeEntity(Entity entity) {
 		List<Entity> entitiesAux = new List<Entity> (entities.ToArray ());
 		entitiesAux.Remove (entity);
 		entitiesAux.ToArray ();

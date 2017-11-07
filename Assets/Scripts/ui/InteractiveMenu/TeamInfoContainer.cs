@@ -24,12 +24,16 @@ public class TeamInfoContainer : MonoBehaviour {
 			playerInfo.GetComponent<ListController> ().activeSprite ();
 
 			Text[] texts = playerInfo.GetComponentsInChildren<Text>();
+
+			float hp = players [i].getStats ().getHp ();
+			float maxHp = players [i].getStats ().getMaxHp ();
 	
-			texts[0].text = players[i].getStats().getHp().ToString() + "/ " + players[i].getStats().getMaxHp().ToString();
+			texts[0].text = hp.ToString() + "/ " + maxHp.ToString();
 			texts[1].text = players[i].getName().ToString();
 
 			Image uiImageHpPlayer = playerInfo.GetComponentInChildren<Image> ();
-			uiImageHpPlayer.fillAmount = players[i].getStats().getHp() / players[i].getStats().getMaxHp();
+
+			uiImageHpPlayer.fillAmount = hp / maxHp;
 		}
 	}
 
@@ -47,11 +51,15 @@ public class TeamInfoContainer : MonoBehaviour {
 
 			Text[] texts = enemyInfo.GetComponentsInChildren<Text>();
 
-			texts[0].text = enemies[i].getStats().getHp().ToString() + "/ " + enemies[i].getStats().getMaxHp().ToString();
+			float hp = enemies [i].getStats ().getHp ();
+			float maxHp = enemies [i].getStats ().getMaxHp ();
+
+			texts[0].text = hp.ToString() + "/ " + maxHp.ToString();
 			texts[1].text = enemies[i].getName().ToString();
 
 			Image uiImageHpPlayer = enemyInfo.GetComponentInChildren<Image> ();
-			uiImageHpPlayer.fillAmount = enemies[i].getStats().getHp() / enemies[i].getStats().getMaxHp();
+
+			uiImageHpPlayer.fillAmount = hp / maxHp;
 		}
 			
 
