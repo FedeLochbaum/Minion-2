@@ -5,6 +5,7 @@ using UnityEngine;
 public class Stats : MonoBehaviour {
 
 	private StatsCalculator calculator;
+	private Entity player;
 
 	public float str;
 	public float agi;
@@ -16,7 +17,7 @@ public class Stats : MonoBehaviour {
 	public Level level;
 
 
-	public Stats() {
+	public Stats(Entity player) {
 		str = 25f;
 		agi = 25f;
 		vit  = 25f;
@@ -25,10 +26,22 @@ public class Stats : MonoBehaviour {
 		luk  = 25f;
 		calculator = new StatsCalculator (this);
 		level = new Level (this);
+		this.player = player;
 	}
 
 	public Level getLevel(){
 		return level;
+	}
+
+	public void levelUp(){
+		setAgi (getAgi() + (level.getLevel() / 2));
+		setDex (getDex() + (level.getLevel() / 1.5f));
+		setInt (getInt() + (level.getLevel() / 1.2f));
+		setLuk (getLuk() + (level.getLevel() / 1.9f));
+		setStr (getStr() + (level.getLevel() / 1.1f));
+		setVit (getVit() + (level.getLevel() / 1.3f));
+
+		calculator.levelUp ();
 	}
 
 	public PhysicalDamage getPhysicalDamage (){
@@ -130,22 +143,15 @@ public class Stats : MonoBehaviour {
 		this.inte = inte;
 	}
 
-	public void levelUp(){
-		setAgi (getAgi() + (level.getLevel() / 2));
-		setDex (getDex() + (level.getLevel() / 1.5f));
-		setInt (getInt() + (level.getLevel() / 1.2f));
-		setLuk (getLuk() + (level.getLevel() / 1.9f));
-		setStr (getStr() + (level.getLevel() / 1.1f));
-		setVit (getVit() + (level.getLevel() / 1.3f));
-
-		calculator.levelUp ();
-	}
-
 	public float getMaxHp(){
 		return calculator.getMaxHp ();
 	}
 
 	public float getMaxSp(){
 		return calculator.getMaxSp ();
+	}
+
+	public Entity getEntity(){
+		return player;
 	}
 }

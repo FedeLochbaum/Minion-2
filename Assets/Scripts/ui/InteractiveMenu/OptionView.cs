@@ -12,12 +12,14 @@ public class OptionView : MonoBehaviour {
 	private ActionView actualActionView;
 	private bool selection;
 	private bool isLoad;
+	private bool gameOverC;
 
 	void Start () {
 		info = teamInfo.GetComponent<TeamInfoContainer> ();
 		resetActionView ();
 		restartSelection ();
 		isLoad = false;
+		gameOverC = false;
 	}
 
 	void Update () {
@@ -25,20 +27,22 @@ public class OptionView : MonoBehaviour {
 	}
 
 	public void checkSelectActions (){
-		if (!selection && isLoad) {
-			if (Input.GetKey (KeyCode.UpArrow)) {
-				actualActionView = actualActionView.back ();
-				activeActionSelector ();
-			}
+		if (!gameOverC) {
+			if (!selection && isLoad) {
+				if (Input.GetKey (KeyCode.UpArrow)) {
+					actualActionView = actualActionView.back ();
+					activeActionSelector ();
+				}
 
-			if (Input.GetKey (KeyCode.DownArrow)) {
-				actualActionView = actualActionView.next ();
-				activeActionSelector ();
-			}
+				if (Input.GetKey (KeyCode.DownArrow)) {
+					actualActionView = actualActionView.next ();
+					activeActionSelector ();
+				}
 
-			if (Input.GetKey (KeyCode.RightArrow)) {
-				selection = true;
-				actualActionView.selection (actualPlayer);
+				if (Input.GetKey (KeyCode.RightArrow)) {
+					selection = true;
+					actualActionView.selection (actualPlayer);
+				}
 			}
 		}
 	}
@@ -66,6 +70,10 @@ public class OptionView : MonoBehaviour {
 		this.enemies = enemies;
 
 		reload ();
+	}
+
+	public void gameOver(){
+		gameOverC = true;
 	}
 
 	public void reload(){

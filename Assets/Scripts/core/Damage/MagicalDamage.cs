@@ -8,6 +8,8 @@ public class MagicalDamage : Damage {
 	}
 
 	public void applyDamage(Entity entity){
-		entity.getStats().takeMagicalDamage (generateDamage ());
+		float damage = generateDamage ();
+		print (playerStats.getEntity ().getName() +" aplica daño magico = " + damage.ToString() + " a : " + entity.getName());
+		entity.getStats().takeMagicalDamage (damage);
 	}
 }

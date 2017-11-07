@@ -13,7 +13,7 @@ public abstract class Entity : MonoBehaviour {
 
 	public Entity (string name) {
 		entityName = name;
-		stats = new Stats ();
+		stats = new Stats (this);
 		gameSystem = GameObject.FindObjectOfType<GameSystem> ();
 		actionSystem = gameSystem.getActionSystem();
 	}

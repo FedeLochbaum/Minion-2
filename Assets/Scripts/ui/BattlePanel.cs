@@ -7,9 +7,10 @@ public class BattlePanel : MonoBehaviour {
 	public GameObject playerTurnObject;
 	public GameObject optionViewObject;
 
+	public GameObject gameOverObject;
+
 	private PlayerTurn playerTurn;
 	private OptionView optionView;
-
 
 
 	void Start () {
@@ -28,7 +29,8 @@ public class BattlePanel : MonoBehaviour {
 
 	public void gameOver(){
 		print ("GameOver");
-		finishBattle ();
+		gameOverObject.SetActive (true);
+		optionView.gameOver ();
 	}
 
 	public void win(){

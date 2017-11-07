@@ -6,7 +6,7 @@ public class StateCalculator : Calculator {
 
 	private float hp;
 	private float sp;
-	// Faltaria aplicar las resistencias.
+	// Falta aplicar las resistencias.
 	public StateCalculator(Stats stats) : base(stats){
 		hp = maxHp();	
 		sp = maxSp();

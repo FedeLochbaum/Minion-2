@@ -19,7 +19,6 @@ public class TurnSystem : MonoBehaviour {
 		Entity first = entities.Dequeue ();
 		if (!first.isDie ()) {
 			entities.Enqueue (first);
-			print (first.getName ());
 			first.myTurn ();
 		} else {
 			// removeEntity (first); ya lo hace cuando hace dequeue

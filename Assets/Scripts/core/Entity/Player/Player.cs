@@ -25,6 +25,7 @@ public class Player : Entity {
 
 	public void selectRunAction(){
 		applyAction (new FleeAction ());
+		finishTurn ();
 	}
 
 	public void selectMagicalAction(Spell spellSelected, List<Entity> affectedEntities){
