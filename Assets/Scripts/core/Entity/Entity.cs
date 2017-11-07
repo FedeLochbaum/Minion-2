@@ -54,4 +54,8 @@ public abstract class Entity : MonoBehaviour {
 		return sprite;
 	}
 
+	public void addExperience(float exp){
+		stats.getLevel ().addExperience (exp);
+	}
+
 }

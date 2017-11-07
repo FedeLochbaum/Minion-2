@@ -27,11 +27,12 @@ public class Level  {
 		checkLevelUp ();
 	}
 
-	public void checkLevelUp(){
+	public void checkLevelUp() {
 		if (actualExperience >= needExperienceForLevelUp) {
 			levelUp ();
 			actualExperience -= needExperienceForLevelUp;
-		}
+			checkLevelUp ();
+		} 
 	}
 
 	public void levelUp(){

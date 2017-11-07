@@ -30,6 +30,11 @@ public class GameSystem : MonoBehaviour {
 		Player kvothe = new Kvothe ();
 		Player netero = new Netero ();
 		Player tyrande = new Tyrande ();
+		aragorn.addExperience (200000f);
+		kvothe.addExperience (200000f);
+		netero.addExperience (200000f);
+		tyrande.addExperience (200000f);
+
 
 		aragorn.sprite = aragornSprite;
 		kvothe.sprite = kvotheSprite;
@@ -77,7 +82,7 @@ public class GameSystem : MonoBehaviour {
 
 			Entity enemy = new Enemy("Enemy " + i,teamPlayer, strategyOfMonsters);
 
-			enemy.getStats().getLevel().addExperience(Random.Range (1, maxLevelPlayer ()) * 1000);
+			enemy.addExperience(2000);
 
 			enemy.sprite = randomSprites [Random.Range (0, randomSprites.Count - 1)];
 
@@ -92,16 +97,5 @@ public class GameSystem : MonoBehaviour {
 
 	public BattleSystem getBattleSystem(){
 		return battleSystem;
-	}
-
-	public float maxLevelPlayer (){
-		float maxLevel = 1;
-
-		foreach (Entity player in teamPlayer) {
-			float levelPlayer = player.getStats ().getLevel ().getLevel ();
-			maxLevel = (levelPlayer >= maxLevel) ? levelPlayer : maxLevel;
-		}
-
-		return maxLevel;
 	}
 }
