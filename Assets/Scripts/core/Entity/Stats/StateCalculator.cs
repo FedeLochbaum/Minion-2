@@ -57,13 +57,13 @@ public class StateCalculator : Calculator {
 	}
 
 	public void hpRecovery(){
-		if (!isDie) {
+		if (!isDie()) {
 			hp = Mathf.Min (hp + Mathf.Floor ((Mathf.Max (1, Mathf.Floor (maxHp () / 200))) + Mathf.Floor (stats.getVit () / 5)), maxHp ());
 		}
 	}
 
 	public void spRecovery(){
-		if (!isDie) {
+		if (!isDie()) {
 			sp = Mathf.Min (sp + Mathf.Floor (1 + (Mathf.Floor (maxSp () / 100)) + Mathf.Floor (stats.getInt () / 6)), maxSp ());
 		}
 	}
