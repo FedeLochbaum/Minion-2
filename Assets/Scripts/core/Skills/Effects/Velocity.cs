@@ -13,4 +13,8 @@ public class Velocity : Blessing {
 	public new float affectAttackSpeed(float attackS){
 		return attackS + bonus;
 	}
+
+	public override Effect copy () {
+		return new Velocity (bonus);
+	}
 }

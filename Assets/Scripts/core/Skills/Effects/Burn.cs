@@ -13,4 +13,8 @@ public class Burn : Curse {
 	public new float affectHp(float hp){
 		return hp - fireDamage;
 	}
+
+	public override Effect copy () {
+		return new Burn (fireDamage);
+	}
 }

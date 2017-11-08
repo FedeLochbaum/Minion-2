@@ -13,4 +13,8 @@ public class Heal : Blessing {
 	public new float affectHp(float hp){
 		return hp + powerHeal;
 	}
+
+	public override Effect copy () {
+		return new Heal (powerHeal, turns);
+	}
 }

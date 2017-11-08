@@ -15,7 +15,7 @@ public class Tyrande : Player {
 		magicSkills.Add (heal);
 		magicSkills.Add (velocity);
 
-		special = new SpecialSkill (stats, 50f, new List<Spell> {new EffectSpell (stats, new Heal(99f, 1), 0f, "")}, "For Elune");
+		special = new SpecialSkill (stats, 10f, new List<Spell> {new EffectSpell (stats, new Heal(99f, 1), 0f, "")}, "For Elune");
 	}
 
 }

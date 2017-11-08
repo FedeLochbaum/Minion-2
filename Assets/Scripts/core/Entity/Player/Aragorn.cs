@@ -15,6 +15,6 @@ public class Aragorn : Player {
 		magicSkills.Add (focus);
 		magicSkills.Add (mortalCombo);
 
-		special = new SpecialSkill (stats, 40f, new List<Spell> {new OffensiveSpell (stats, 65f, "")}, "Mortal");
+		special = new SpecialSkill (stats, 10f, new List<Spell> {new OffensiveSpell (stats, 65f, "")}, "Mortal");
 	}
 }

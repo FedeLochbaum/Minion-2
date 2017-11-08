@@ -10,4 +10,8 @@ public class Poison : Curse {
 	public new float affectHp(float hp){
 		return hp - (hp * 0.5f);
 	}
+
+	public override Effect copy () {
+		return new Poison ();
+	}
 }

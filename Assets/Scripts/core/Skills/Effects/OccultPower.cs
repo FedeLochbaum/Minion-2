@@ -33,4 +33,8 @@ public class OccultPower : Blessing {
 	public new float affectSp(float sp){
 		return sp / 2;
 	}
+
+	public override Effect copy () {
+		return new OccultPower ();
+	}
 }

@@ -14,7 +14,7 @@ public class Netero : Player {
 		magicSkills.Add (rdef);
 		magicSkills.Add (protect);
 
-		special = new SpecialSkill (stats, 50f, new List<Spell> {new EffectSpell (stats, new OccultPower(), 0f, "") }, "OccultPower");
+		special = new SpecialSkill (stats, 10f, new List<Spell> {new EffectSpell (stats, new OccultPower(), 0f, "") }, "OccultPower");
 	}
 
 }

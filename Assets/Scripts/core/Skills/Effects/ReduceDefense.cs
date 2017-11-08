@@ -17,4 +17,8 @@ public class ReduceDefense : Curse {
 	public new float affectMagicalDefense(float def){
 		return Mathf.Max(def - reduce, 0);
 	}
+
+	public override Effect copy () {
+		return new ReduceDefense (reduce, turns);
+	}
 }

@@ -14,7 +14,7 @@ public class EffectSpell : Spell {
 		if (playerStats.getSp () >= cost) {
 			playerStats.reduceSp (cost);
 			Debug.Log (playerStats.getEntity ().getName () + " aplica efecto: " + nameSpell + " a: " + entity.getName ());
-			entity.getStats ().applyEffect (effect);
+			entity.getStats ().applyEffect (effect.copy());
 		}
 	}
 }

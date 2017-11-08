@@ -15,7 +15,7 @@ public class Kvothe : Player {
 		magicSkills.Add (songOfWind);
 		magicSkills.Add (memory);
 
-		special = new SpecialSkill (stats, 40f, new List<Spell> {new EffectSpell (stats, new Velocity(4f), 0f, ""), new EffectSpell (stats, new Heal(3f, 4), 0f, "")}, "Denna song");
+		special = new SpecialSkill (stats, 10f, new List<Spell> {new EffectSpell (stats, new Velocity(4f), 0f, ""), new EffectSpell (stats, new Heal(3f, 4), 0f, "")}, "Denna song");
 	}
 		
 }

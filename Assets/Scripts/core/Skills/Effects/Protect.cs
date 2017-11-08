@@ -17,4 +17,8 @@ public class Protect : Blessing {
 	public new float affectMagicalDefense(float def){
 		return def + bonusDefense;
 	}
+
+	public override Effect copy () {
+		return new Protect (bonusDefense);
+	}
 }

@@ -57,11 +57,15 @@ public class StateCalculator : Calculator {
 	}
 
 	public void hpRecovery(){
-		hp = Mathf.Min(hp + Mathf.Floor((Mathf.Max( 1, Mathf.Floor( maxHp() / 200) )) + Mathf.Floor(stats.getVit() / 5)), maxHp());
+		if (!isDie) {
+			hp = Mathf.Min (hp + Mathf.Floor ((Mathf.Max (1, Mathf.Floor (maxHp () / 200))) + Mathf.Floor (stats.getVit () / 5)), maxHp ());
+		}
 	}
 
 	public void spRecovery(){
-		sp = Mathf.Min(sp + Mathf.Floor(1 + (Mathf.Floor( maxSp() / 100 )) + Mathf.Floor(stats.getInt() / 6)), maxSp());
+		if (!isDie) {
+			sp = Mathf.Min (sp + Mathf.Floor (1 + (Mathf.Floor (maxSp () / 100)) + Mathf.Floor (stats.getInt () / 6)), maxSp ());
+		}
 	}
 
 	public override void update(){

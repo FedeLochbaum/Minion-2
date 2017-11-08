@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Effect : MonoBehaviour {
 
-	private int turns;
+	protected int turns;
 
 	public Effect(int turns){
 		this.turns = turns;	
@@ -17,6 +17,7 @@ public abstract class Effect : MonoBehaviour {
 			stats.removeEffect (this);
 		}
 	}
+	public abstract Effect copy ();
 
 	public float affectPhysicalDefense(float def){
 		return def;

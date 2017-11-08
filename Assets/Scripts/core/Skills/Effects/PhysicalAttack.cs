@@ -13,4 +13,8 @@ public class PhysicalAttack : Blessing {
 	public new float affectPhysicalDamage(float dmg){
 		return dmg + attack;
 	}
+
+	public override Effect copy () {
+		return new PhysicalAttack (attack, turns);
+	}
 }
