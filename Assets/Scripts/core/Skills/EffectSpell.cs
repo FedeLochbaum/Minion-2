@@ -13,7 +13,7 @@ public class EffectSpell : Spell {
 	public override void apply(Entity entity){
 		if (playerStats.getSp () >= cost) {
 			playerStats.reduceSp (cost);
-			print (playerStats.getEntity ().getName () + " aplica efecto: " + nameSpell + " a: " + entity.getName ());
+			Debug.Log (playerStats.getEntity ().getName () + " aplica efecto: " + nameSpell + " a: " + entity.getName ());
 			entity.getStats ().applyEffect (effect);
 		}
 	}

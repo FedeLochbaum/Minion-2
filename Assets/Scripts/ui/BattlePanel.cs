@@ -28,13 +28,11 @@ public class BattlePanel : MonoBehaviour {
 	}
 
 	public void gameOver(){
-		print ("GameOver");
 		gameOverObject.SetActive (true);
 		optionView.gameOver ();
 	}
 
 	public void win(){
-		print ("Win");
 		finishBattle ();
 	}
 

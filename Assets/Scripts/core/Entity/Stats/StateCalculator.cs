@@ -33,11 +33,15 @@ public class StateCalculator : Calculator {
 	}
 
 	public void takeDamage(float finalDamage){
-		hp = Mathf.Max (0, hp - finalDamage);
+		if (finalDamage > 0) {
+			hp = Mathf.Max (0, hp - finalDamage);
+		}
 	}
 
 	public void reduceSp(float cost){
-		sp = Mathf.Max (0, sp - cost);
+		if (cost > 0) {
+			sp = Mathf.Max (0, sp - cost);
+		}
 	}
 
 	public void affectStateValues(){

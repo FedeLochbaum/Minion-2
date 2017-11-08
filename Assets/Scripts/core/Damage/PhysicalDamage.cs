@@ -9,7 +9,7 @@ public class PhysicalDamage : Damage {
 
 	public void applyDamage(Entity entity){
 		float damage = generateDamage ();
-		print (playerStats.getEntity ().getName() +" aplica daño fisico = " + damage.ToString() + " a : " + entity.getName());
+		Debug.Log (playerStats.getEntity ().getName() +" aplica daño fisico = " + damage.ToString() + " a : " + entity.getName());
 		entity.getStats().takePhysicalDamage (damage);
 	}
 }

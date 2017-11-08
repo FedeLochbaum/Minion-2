@@ -19,9 +19,6 @@ public class LevelingSystem {
 	public float getExperienceForLevel(Entity player, Entity enemy){
 		float exp = enemy.getExperience ();
 		float percentageOfAgain = getPercentageOfAgain (player, enemy);
-
-		//Debug.Log ("Exp  de estrategia: " + exp.ToString ());
-		//Debug.Log ("Porcentaje de ganancia: " + percentageOfAgain.ToString ());
 		return  1000 * percentageOfAgain * 1.5f;
 	}
 
